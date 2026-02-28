@@ -1,12 +1,12 @@
 
-    public enum Status
+    public enum TransactionStatus
     {
         Completed,
         Pending,
-        Cancelled,
-        Refunded,
+        Reversed,
         Submitted,
         Failed,
+        Processing
         
         
     }
