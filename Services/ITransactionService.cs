@@ -1,4 +1,9 @@
-public interface ItransactionService
+using TransactionalBusiness.Api.Domain;
+
+namespace TransactionalBusiness.Api.Services;
+
+
+public interface ITransactionService
 {
     Task<Transaction> CreateAsync(
         Guid userId,
@@ -11,18 +16,18 @@ public interface ItransactionService
 
 
       Task<Transaction> GetByIdAsync(
-        Guid userId
+        Guid id
       );
 
-         Task<Transaction> SubmitAsync(
-                    Guid userId
+         Task SubmitAsync(
+                    Guid id
 
          );
 
 
     
-     Task<Transaction> FailAsync(
-                Guid userId
+     Task FailAsync(
+                Guid id
 
      );
 

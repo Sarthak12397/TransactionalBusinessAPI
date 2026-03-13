@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|d:\\final_projects\\transcational_api\\transactionalbusiness.api\\services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|solutionrelative:services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|d:\\final_projects\\transcational_api\\transactionalbusiness.api\\domain\\transcationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|solutionrelative:domain\\transcationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|d:\\final_projects\\transcational_api\\transactionalbusiness.api\\domain\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|solutionrelative:domain\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|d:\\final_projects\\transcational_api\\transactionalbusiness.api\\data\\paymentdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|solutionrelative:data\\paymentdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|d:\\final_projects\\transcational_api\\transactionalbusiness.api\\services\\ttransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|solutionrelative:services\\ttransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|d:\\final_projects\\transcational_api\\transactionalbusiness.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBF15951-1B58-9E1A-64DF-D558E46FE8B7}|TransactionalBusinessApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,11 +38,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Domain\\Transaction.cs",
+              "RelativeDocumentMoniker": "Domain\\Transaction.cs",
+              "ToolTip": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Domain\\Transaction.cs",
+              "RelativeToolTip": "Domain\\Transaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T11:37:14.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PaymentDbContext.cs",
+              "DocumentMoniker": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Data\\PaymentDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\PaymentDbContext.cs",
+              "ToolTip": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Data\\PaymentDbContext.cs",
+              "RelativeToolTip": "Data\\PaymentDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T09:27:35.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ITransactionService.cs",
+              "DocumentMoniker": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Services\\ITransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\ITransactionService.cs",
+              "ToolTip": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Services\\ITransactionService.cs",
+              "RelativeToolTip": "Services\\ITransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T09:27:23.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Ttransactionservice.cs",
+              "DocumentMoniker": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Services\\Ttransactionservice.cs",
+              "RelativeDocumentMoniker": "Services\\Ttransactionservice.cs",
+              "ToolTip": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Services\\Ttransactionservice.cs",
+              "RelativeToolTip": "Services\\Ttransactionservice.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T09:27:22.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Transcationstatus.cs",
+              "DocumentMoniker": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Domain\\Transcationstatus.cs",
+              "RelativeDocumentMoniker": "Domain\\Transcationstatus.cs",
+              "ToolTip": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Domain\\Transcationstatus.cs",
+              "RelativeToolTip": "Domain\\Transcationstatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T09:27:18.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -30,12 +114,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T15:42:05.904Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-19T15:42:05.904Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "TransactionalBusinessApi.http",
               "DocumentMoniker": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\TransactionalBusinessApi.http",
               "RelativeDocumentMoniker": "TransactionalBusinessApi.http",

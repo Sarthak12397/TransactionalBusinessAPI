@@ -1,3 +1,6 @@
+
+namespace TransactionalBusiness.Api.Domain;
+
 public class Transaction
 {
     public Guid Id
@@ -48,7 +51,7 @@ public class Transaction
 
   Guid userId,
     decimal amount,
-    string currencies,
+    string currency,
     string idempotencyKey,
     string description
 
@@ -61,7 +64,7 @@ public class Transaction
         Id = Guid.NewGuid();
          UserId = userId;
          Amount = amount;
-    Currency = currencies;
+    Currency = currency;
     IdempotencyKey = idempotencyKey;
     Description = description;
     Status = TransactionStatus.Pending;

@@ -1,3 +1,4 @@
+namespace TransactionalBusiness.Api.Domain;
 
     public enum TransactionStatus
     {

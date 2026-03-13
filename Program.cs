@@ -1,11 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using TransactionalBusiness.Api.Data;
+using TransactionalBusiness.Api.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Tell Kestrel to listen on port 8080
-builder.WebHost.UseUrls("http://localhost:5089");
+
 
 builder.Services.AddControllers();
-
+builder.Services.AddDbContext<PaymentDbContext>(
+    options => options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    )
+);
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 var app = builder.Build();
+
+
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
