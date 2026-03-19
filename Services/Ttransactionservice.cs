@@ -37,18 +37,51 @@ public class TransactionService : ITransactionService
         return transaction;
     }
 
-    public Task FailAsync(Guid id)
+    public async Task FailAsync(Guid id)
     {
-        throw new NotImplementedException();
+
+        var FailbyId = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
+
+        if(FailbyId == null)
+        {
+                        throw new KeyNotFoundException($"No {id} submitted");
+
+        }
+
+        FailbyId.Fail();
+
+
+        await  _db.SaveChangesAsync() ;                
     }
 
-    public Task<Transaction> GetByIdAsync(Guid id)
+    public async Task<Transaction> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        
+              var getbyid = await _db.Transactions.FirstOrDefaultAsync(t => t.Id == id);
+        if(getbyid == null)
+        {
+            throw new KeyNotFoundException($"Transaction {id} not found");
+
+        }
+        return getbyid;
+
     }
 
-    public Task SubmitAsync(Guid id)
+    public async Task SubmitAsync(Guid id)
     {
-        throw new NotImplementedException();
+        
+        var submitbyId = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
+
+        if(submitbyId == null)
+        {
+                        throw new KeyNotFoundException($"No {id} submitted");
+
+        }
+
+        submitbyId.Submit();
+
+
+        await  _db.SaveChangesAsync() ;                
+
     }
 }
