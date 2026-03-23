@@ -32,14 +32,56 @@ public async Task<IActionResult> Create([FromBody] CreateTransactionRequest requ
         );
 
 
-        var response = new TransactionResponse(
-           Id = transaction.Id,
-           userId = transaction.UserId
-        );
+        var response = new TransactionResponse
+    {
+        Id = transaction.Id,
+        UserId = transaction.UserId,
+        Amount = transaction.Amount,
+        Currency = transaction.Currency,
+        Status = transaction.Status,
+        CreatedAt = transaction.CreatedAt
+    };
+
+    return CreatedAtAction(nameof(GetById), new { id = transaction.Id }, response);
+    }
+
+
+ [HttpGet("{id}")]
+public async Task<IActionResult> GetById(Guid id)
+    {
+        var transaction = await _service.GetByIdAsync(id);
+        var response = new TransactionResponse
+        {
+            Id = transaction.Id,
+            UserId = transaction.UserId,
+            Amount = transaction.Amount,
+            Currency = transaction.Currency,
+            Status = transaction.Status,
+            CreatedAt = transaction.CreatedAt
+        };
+        return Ok(response);
+    }
+
+  [HttpPost("{id}/submit")]
+   public async Task<IActionResult> Submit(Guid id)
+    {
+        await _service.SubmitAsync(id);
+        return Ok();
+    }
+    [HttpPost("{id}/Fail")]
+public async Task<IActionResult> Fail(Guid id)
+    {
+        await _service.FailAsync(id);
+        return Ok();
     }
 
 
 
 
 }
+
+
+
+
+
 
