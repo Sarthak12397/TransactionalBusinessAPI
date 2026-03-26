@@ -84,4 +84,35 @@ public class TransactionService : ITransactionService
         await  _db.SaveChangesAsync() ;                
 
     }
+
+
+       public async Task ProcessAsync(Guid id)
+            {
+
+           var processbyid = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
+           if(processbyid == null)
+        {
+             throw new KeyNotFoundException($"No {id} submitted");
+
+        }
+
+             processbyid.Process();
+            await _db.SaveChangesAsync();
+        }
+
+            public async Task CompleteAsync(Guid id)
+            {
+            var completebyid = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
+
+        if(completebyid == null)
+        {
+                        throw new KeyNotFoundException($"No {id} submitted");
+
+        }
+
+        completebyid.Complete();
+
+
+        await  _db.SaveChangesAsync() ;               
+            }
 }

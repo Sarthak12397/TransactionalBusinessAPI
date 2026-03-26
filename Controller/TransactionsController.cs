@@ -69,11 +69,30 @@ public async Task<IActionResult> GetById(Guid id)
         return Ok();
     }
     [HttpPost("{id}/fail")]
-public async Task<IActionResult> Fail(Guid id)
+    public async Task<IActionResult> Fail(Guid id)
     {
         await _service.FailAsync(id);
         return Ok();
     }
+    
+
+    [HttpPost("{id}/process")]
+    public async Task<IActionResult> Process(Guid id)
+    {
+        await _service.ProcessAsync(id);
+        return Ok();
+        
+    }
+
+
+        [HttpPost("{id}/complete")]
+    public async Task<IActionResult> Complete(Guid id)
+    {
+        await _service.CompleteAsync(id);
+        return Ok();
+        
+    }
+
 
 
 
