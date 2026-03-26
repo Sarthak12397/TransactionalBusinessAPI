@@ -68,7 +68,7 @@ public async Task<IActionResult> GetById(Guid id)
         await _service.SubmitAsync(id);
         return Ok();
     }
-    [HttpPost("{id}/Fail")]
+    [HttpPost("{id}/fail")]
 public async Task<IActionResult> Fail(Guid id)
     {
         await _service.FailAsync(id);
