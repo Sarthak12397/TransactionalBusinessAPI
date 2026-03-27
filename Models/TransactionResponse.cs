@@ -9,4 +9,7 @@ public class TransactionResponse
     public string Currency { get; set; }
     public TransactionStatus Status { get; set; }
     public DateTime CreatedAt { get; set; }
+
+
+    
 }

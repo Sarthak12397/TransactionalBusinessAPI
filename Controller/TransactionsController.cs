@@ -16,6 +16,19 @@ public class TransactionsController : ControllerBase
         _service = service;
     }
 
+    private TransactionResponse MapToResponse(Transaction transaction)
+    {
+        return new TransactionResponse
+        {
+                    Id = transaction.Id,
+        UserId = transaction.UserId,
+        Amount = transaction.Amount,
+        Currency = transaction.Currency,
+        Status = transaction.Status,
+        CreatedAt = transaction.CreatedAt
+        };
+    }
+
     
     [HttpPost]
 public async Task<IActionResult> Create([FromBody] CreateTransactionRequest request)
@@ -50,47 +63,49 @@ public async Task<IActionResult> Create([FromBody] CreateTransactionRequest requ
 public async Task<IActionResult> GetById(Guid id)
     {
         var transaction = await _service.GetByIdAsync(id);
-        var response = new TransactionResponse
-        {
-            Id = transaction.Id,
-            UserId = transaction.UserId,
-            Amount = transaction.Amount,
-            Currency = transaction.Currency,
-            Status = transaction.Status,
-            CreatedAt = transaction.CreatedAt
-        };
-        return Ok(response);
+        return Ok(MapToResponse(transaction));
+
+
     }
 
   [HttpPost("{id}/submit")]
    public async Task<IActionResult> Submit(Guid id)
     {
         await _service.SubmitAsync(id);
-        return Ok();
+            var transaction = await _service.GetByIdAsync(id);
+        return Ok(MapToResponse(transaction));
     }
     [HttpPost("{id}/fail")]
     public async Task<IActionResult> Fail(Guid id)
     {
         await _service.FailAsync(id);
-        return Ok();
+            var transaction = await _service.GetByIdAsync(id);
+return Ok(MapToResponse(transaction));
     }
     
 [HttpPost("{id}/process")]
 public async Task<IActionResult> Process(Guid id)
 {
     await _service.ProcessAsync(id);
-    return Ok();
+
+    var transaction = await _service.GetByIdAsync(id);
+return Ok(MapToResponse(transaction));
 }
 
 [HttpPost("{id}/complete")]
 public async Task<IActionResult> Complete(Guid id)
 {
     await _service.CompleteAsync(id);
-    return Ok();
+        var transaction = await _service.GetByIdAsync(id);
+return Ok(MapToResponse(transaction));
 }
 
 
 }
+
+
+
+
 
 
 
