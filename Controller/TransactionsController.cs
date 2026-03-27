@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using TransactionalBusiness.Api.Services;
 using TransactionalBusiness.Api.Models;
 using TransactionalBusiness.Api.Domain;
-
+using TransactionalBusiness.Api.Services;
 namespace TransactionalBusiness.Api.Controllers;
+
 
 [ApiController]
 [Route("api/[controller]")]
@@ -75,26 +75,19 @@ public async Task<IActionResult> GetById(Guid id)
         return Ok();
     }
     
+[HttpPost("{id}/process")]
+public async Task<IActionResult> Process(Guid id)
+{
+    await _service.ProcessAsync(id);
+    return Ok();
+}
 
-    [HttpPost("{id}/process")]
-    public async Task<IActionResult> Process(Guid id)
-    {
-        await _service.ProcessAsync(id);
-        return Ok();
-        
-    }
-
-
-        [HttpPost("{id}/complete")]
-    public async Task<IActionResult> Complete(Guid id)
-    {
-        await _service.CompleteAsync(id);
-        return Ok();
-        
-    }
-
-
-
+[HttpPost("{id}/complete")]
+public async Task<IActionResult> Complete(Guid id)
+{
+    await _service.CompleteAsync(id);
+    return Ok();
+}
 
 
 }

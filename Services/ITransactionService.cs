@@ -26,10 +26,12 @@ public interface ITransactionService
 
 
     
-     Task FailAsync(
-                Guid id
+     Task FailAsync(  Guid id);
 
-     );
+     Task CompleteAsync(Guid id);
+     Task ProcessAsync(Guid id);
+
+
 
 
 }
