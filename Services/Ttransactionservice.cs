@@ -48,7 +48,7 @@ public class TransactionService : ITransactionService
 
         }
 
-        FailbyId.Fail();
+        FailbyId.Fail("Manual Fail");
 
 
         await  _db.SaveChangesAsync() ;                
@@ -88,6 +88,20 @@ public class TransactionService : ITransactionService
 
        public async Task ProcessAsync(Guid id)
             {
+
+
+                 var updated = await _db.Transactions
+        .Where(t => t.Id == id 
+               && (t.Status == TransactionStatus.Submitted 
+               || t.Status == TransactionStatus.RetryScheduled))
+        .ExecuteUpdateAsync(s => s
+            .SetProperty(t => t.Status, TransactionStatus.Processing));
+
+    if (updated == 0)
+    {
+        // another worker already claimed it — exit cleanly
+        return;
+    }
 
            var processbyid = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
            if(processbyid == null)

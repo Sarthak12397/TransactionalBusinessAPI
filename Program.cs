@@ -2,6 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using TransactionalBusiness.Api.Data;
 using TransactionalBusiness.Api.Services;
 using System.Text.Json.Serialization;
+using Hangfire;
+using Hangfire.PostgreSql;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +22,18 @@ builder.Services.AddDbContext<PaymentDbContext>(
 );
 
 builder.Services.AddScoped<ITransactionService, TransactionService>();
+
+
+builder.Services.AddHangfire(config =>
+
+          config.UsePostgreSqlStorage(
+            builder.Configuration.GetConnectionString("DefaultConnection")
+
+          )
+);
+
+builder.Services.AddHangfireServer();
+
 
 var app = builder.Build();
 
@@ -44,6 +60,8 @@ app.UseExceptionHandler(errorApp =>
     });
 });
 app.UseRouting();
+app.UseHangfireDashboard("/hangfire");
+
 app.UseAuthorization();
 app.MapControllers();
 

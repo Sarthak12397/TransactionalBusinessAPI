@@ -40,12 +40,54 @@ public class Transaction
         get; private set;
     }
 
+    public int RetryCount{
+        get;
+        private set;
+    }
+    public string? FailureReason
+    {
+        get;private set;
+    }
+
+public DateTime? LastAttemptAt { get; private set; }
+
+
     public TransactionStatus Status
     {
         get; private set;
     }
-
+public DateTime? NextRetryAt { get; private set; }
+public int MaxRetries { get; private set; } = 3;
     
+
+public void ScheduleRetry(string reason, DateTime nextRetryAt)
+{
+    if (Status != TransactionStatus.Processing)
+    {
+        throw new InvalidOperationException($"Cannot retry from {Status}");
+    }
+
+    if (RetryCount >= MaxRetries)
+    {
+        Status = TransactionStatus.Failed;
+        FailureReason = reason;
+        UpdatedAt = DateTime.UtcNow;
+        return;
+    }
+
+    FailureReason = reason;
+    NextRetryAt = nextRetryAt;
+    Status = TransactionStatus.RetryScheduled;
+    UpdatedAt = DateTime.UtcNow;
+}
+
+
+
+
+
+
+
+
    public Transaction(
 
 
@@ -91,32 +133,43 @@ public class Transaction
 
 public void Process()
 {
-  if(Status != TransactionStatus.Submitted)
-        {
-            throw new InvalidOperationException($"Cannot Process from {Status}");
-        }
-        Status = TransactionStatus.Processing;
-        UpdatedAt = DateTime.UtcNow;
+    if (Status != TransactionStatus.Submitted 
+        && Status != TransactionStatus.RetryScheduled)
+    {
+        throw new InvalidOperationException($"Cannot Process from {Status}");
+    }
+
+    Status = TransactionStatus.Processing;
+
+    RetryCount++;                 
+    LastAttemptAt = DateTime.UtcNow;
+    NextRetryAt = null;            
+    UpdatedAt = DateTime.UtcNow;
 }
 
 public void Complete()
 {
-     if(Status != TransactionStatus.Processing)
-        {
-            throw new InvalidOperationException($"Cannot Complete from {Status}");
-        }
-        Status = TransactionStatus.Completed;
-        UpdatedAt = DateTime.UtcNow;
-}
+    if (Status != TransactionStatus.Processing)
+    {
+        throw new InvalidOperationException($"Cannot Complete from {Status}");
+    }
 
-public void Fail()
+    Status = TransactionStatus.Completed;
+    FailureReason = null; // ✅ important
+    UpdatedAt = DateTime.UtcNow;
+}
+public void Fail(string reason)
 {
-  if(Status != TransactionStatus.Submitted && Status != TransactionStatus.Processing)
-        {
-            throw new InvalidOperationException($"Cannot Fail from {Status}");
-        }
-        Status = TransactionStatus.Failed;
-        UpdatedAt = DateTime.UtcNow;
+    if (Status != TransactionStatus.Submitted 
+        && Status != TransactionStatus.Processing)
+    {
+        throw new InvalidOperationException($"Cannot Fail from {Status}");
+    }
+
+    Status = TransactionStatus.Failed;
+    FailureReason = reason;
+    LastAttemptAt = DateTime.UtcNow; // ✅ add this
+    UpdatedAt = DateTime.UtcNow;
 }
 
 public void Reverse()
