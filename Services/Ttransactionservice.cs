@@ -1,7 +1,9 @@
 
+using Hangfire;
 using Microsoft.EntityFrameworkCore;
 using TransactionalBusiness.Api.Data;
 using TransactionalBusiness.Api.Domain;
+using TransactionalBusiness.Api.Jobs;
 using TransactionalBusiness.Api.Services;
 
 namespace TransactionalBusiness.Api.Services;
@@ -40,18 +42,20 @@ public class TransactionService : ITransactionService
     public async Task FailAsync(Guid id)
     {
 
-        var FailbyId = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
+        var failbyId = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
 
-        if(FailbyId == null)
-        {
-                        throw new KeyNotFoundException($"No {id} submitted");
+        if (failbyId == null)
+        
+            throw new KeyNotFoundException($"Transaction {id} not found");
+        var nextRetry = DateTime.UtcNow.AddSeconds(30);
+        failbyId.ScheduleRetry("Manual Fail Triggered", nextRetry);
+        await _db.SaveChangesAsync();
 
-        }
-
-        FailbyId.Fail("Manual Fail");
-
-
-        await  _db.SaveChangesAsync() ;                
+            BackgroundJob.Schedule<RetryTransactionJob>(
+        job => job.ExecuteAsync(id),
+        TimeSpan.FromSeconds(30)
+    );
+          
     }
 
     public async Task<Transaction> GetByIdAsync(Guid id)
@@ -89,19 +93,17 @@ public class TransactionService : ITransactionService
        public async Task ProcessAsync(Guid id)
             {
 
-
-                 var updated = await _db.Transactions
+    var updated = await _db.Transactions
         .Where(t => t.Id == id 
                && (t.Status == TransactionStatus.Submitted 
                || t.Status == TransactionStatus.RetryScheduled))
         .ExecuteUpdateAsync(s => s
-            .SetProperty(t => t.Status, TransactionStatus.Processing));
+            .SetProperty(t => t.Status, TransactionStatus.Processing)
+            .SetProperty(t => t.LastAttemptAt, DateTime.UtcNow)
+            .SetProperty(t => t.NextRetryAt, (DateTime?)null)
+            .SetProperty(t => t.UpdatedAt, DateTime.UtcNow));
 
-    if (updated == 0)
-    {
-        // another worker already claimed it — exit cleanly
-        return;
-    }
+    if (updated == 0) return;
 
            var processbyid = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
            if(processbyid == null)
@@ -110,23 +112,21 @@ public class TransactionService : ITransactionService
 
         }
 
-             processbyid.Process();
+             processbyid.RecordAttempt();
             await _db.SaveChangesAsync();
-        }
+        }public async Task CompleteAsync(Guid id)
+{
+    // Use ExecuteUpdateAsync — same as ProcessAsync
+    var updated = await _db.Transactions
+        .Where(t => t.Id == id 
+               && t.Status == TransactionStatus.Processing)
+        .ExecuteUpdateAsync(s => s
+            .SetProperty(t => t.Status, TransactionStatus.Completed)
+            .SetProperty(t => t.FailureReason, (string?)null)
+            .SetProperty(t => t.UpdatedAt, DateTime.UtcNow));
 
-            public async Task CompleteAsync(Guid id)
-            {
-            var completebyid = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
+    if (updated == 0)
+        throw new InvalidOperationException($"Cannot complete transaction {id}");
+}
 
-        if(completebyid == null)
-        {
-                        throw new KeyNotFoundException($"No {id} submitted");
-
-        }
-
-        completebyid.Complete();
-
-
-        await  _db.SaveChangesAsync() ;               
-            }
 }

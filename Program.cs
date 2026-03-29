@@ -4,6 +4,7 @@ using TransactionalBusiness.Api.Services;
 using System.Text.Json.Serialization;
 using Hangfire;
 using Hangfire.PostgreSql;
+using TransactionalBusiness.Api.Jobs;
 
 
 
@@ -22,6 +23,7 @@ builder.Services.AddDbContext<PaymentDbContext>(
 );
 
 builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddScoped<RetryTransactionJob>();
 
 
 builder.Services.AddHangfire(config =>
@@ -31,6 +33,8 @@ builder.Services.AddHangfire(config =>
 
           )
 );
+
+
 
 builder.Services.AddHangfireServer();
 

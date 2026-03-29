@@ -80,7 +80,13 @@ public void ScheduleRetry(string reason, DateTime nextRetryAt)
     Status = TransactionStatus.RetryScheduled;
     UpdatedAt = DateTime.UtcNow;
 }
-
+public void RecordAttempt()
+{
+    RetryCount++;
+    LastAttemptAt = DateTime.UtcNow;
+    NextRetryAt = null;
+    UpdatedAt = DateTime.UtcNow;
+}
 
 
 
@@ -160,15 +166,16 @@ public void Complete()
 }
 public void Fail(string reason)
 {
-    if (Status != TransactionStatus.Submitted 
-        && Status != TransactionStatus.Processing)
+   if (Status != TransactionStatus.Submitted 
+        && Status != TransactionStatus.Processing
+        && Status != TransactionStatus.RetryScheduled)  // ← ADD THIS
     {
         throw new InvalidOperationException($"Cannot Fail from {Status}");
     }
 
     Status = TransactionStatus.Failed;
     FailureReason = reason;
-    LastAttemptAt = DateTime.UtcNow; // ✅ add this
+    LastAttemptAt = DateTime.UtcNow;
     UpdatedAt = DateTime.UtcNow;
 }
 
