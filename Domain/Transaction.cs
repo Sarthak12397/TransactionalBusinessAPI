@@ -69,10 +69,10 @@ public void ScheduleRetry(string reason, DateTime nextRetryAt)
 
     if (RetryCount >= MaxRetries)
     {
-        Status = TransactionStatus.Failed;
-        FailureReason = reason;
-        UpdatedAt = DateTime.UtcNow;
-        return;
+       Status = TransactionStatus.Permanentfailure;
+    FailureReason = reason;
+    UpdatedAt = DateTime.UtcNow;
+    return;
     }
 
     FailureReason = reason;
@@ -174,6 +174,15 @@ public void Fail(string reason)
     }
 
     Status = TransactionStatus.Failed;
+    FailureReason = reason;
+    LastAttemptAt = DateTime.UtcNow;
+    UpdatedAt = DateTime.UtcNow;
+}
+
+
+public void PermanentFail(string reason)
+{
+    Status = TransactionStatus.Permanentfailure;
     FailureReason = reason;
     LastAttemptAt = DateTime.UtcNow;
     UpdatedAt = DateTime.UtcNow;

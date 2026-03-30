@@ -8,7 +8,8 @@ namespace TransactionalBusiness.Api.Domain;
         Submitted,
         Failed,
         Processing,
-        RetryScheduled  
+        RetryScheduled,
+        Permanentfailure
         
         
     }

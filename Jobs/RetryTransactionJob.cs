@@ -36,21 +36,26 @@ public class RetryTransactionJob
         }
         catch(Exception ex)
         {
-                Console.WriteLine($"RETRY JOB ERROR: {ex.Message}");
-
-            var isTransient = ex.Message.Contains("Timeout") || ex.Message.Contains("connection");
-            if (isTransient)
-            {
-                 var nextRetry = DateTime.UtcNow.AddSeconds(
-                    Math.Pow(2, transaction.RetryCount) * 30);
-                       transaction.ScheduleRetry(ex.Message, nextRetry);
-                await _db.SaveChangesAsync();
-            }
-            else
-            {
-                   transaction.Fail(ex.Message);
-                await _db.SaveChangesAsync();
-            }
+               if (failureclassifier.IsPermanent(ex.Message))
+    {
+        // permanent — don't retry
+        transaction.PermanentFail(ex.Message);
+        await _db.SaveChangesAsync();
+    }
+    else if (failureclassifier.IsTransient(ex.Message))
+    {
+        // transient — schedule retry
+        var nextRetry = DateTime.UtcNow.AddSeconds(
+            Math.Pow(2, transaction.RetryCount) * 30);
+        transaction.ScheduleRetry(ex.Message, nextRetry);
+        await _db.SaveChangesAsync();
+    }
+    else
+    {
+        // unknown — treat as permanent
+        transaction.PermanentFail(ex.Message);
+        await _db.SaveChangesAsync();
+    }
         }
     }
 
