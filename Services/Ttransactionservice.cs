@@ -39,7 +39,7 @@ public class TransactionService : ITransactionService
         return transaction;
     }
 
-    public async Task FailAsync(Guid id)
+    public async Task FailAsync(Guid id,string reason)
     {
 
         var failbyId = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
@@ -47,14 +47,23 @@ public class TransactionService : ITransactionService
         if (failbyId == null)
         
             throw new KeyNotFoundException($"Transaction {id} not found");
-        var nextRetry = DateTime.UtcNow.AddSeconds(30);
-        failbyId.ScheduleRetry("Manual Fail Triggered", nextRetry);
-        await _db.SaveChangesAsync();
+       if (failureclassifier.IsPermanent(reason))
+{
+    failbyId.PermanentFail(reason);
+    await _db.SaveChangesAsync();
+    return; // no retry!
+}
 
-            BackgroundJob.Schedule<RetryTransactionJob>(
-        job => job.ExecuteAsync(id),
-        TimeSpan.FromSeconds(30)
-    );
+// transient — schedule retry
+var nextRetry = DateTime.UtcNow.AddSeconds(30);
+failbyId.ScheduleRetry(reason, nextRetry);
+await _db.SaveChangesAsync();
+
+BackgroundJob.Schedule<RetryTransactionJob>(
+    job => job.ExecuteAsync(id),
+    TimeSpan.FromSeconds(30)
+);
+
           
     }
 
