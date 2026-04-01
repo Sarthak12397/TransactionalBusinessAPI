@@ -47,7 +47,7 @@ public class TransactionService : ITransactionService
         if (failbyId == null)
         
             throw new KeyNotFoundException($"Transaction {id} not found");
-       if (failureclassifier.IsPermanent(reason))
+       if (FailureClassifier.IsPermanent(reason))
 {
     failbyId.PermanentFail(reason);
     await _db.SaveChangesAsync();
@@ -125,7 +125,6 @@ BackgroundJob.Schedule<RetryTransactionJob>(
             await _db.SaveChangesAsync();
         }public async Task CompleteAsync(Guid id)
 {
-    // Use ExecuteUpdateAsync — same as ProcessAsync
     var updated = await _db.Transactions
         .Where(t => t.Id == id 
                && t.Status == TransactionStatus.Processing)

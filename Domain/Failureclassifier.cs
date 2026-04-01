@@ -1,4 +1,4 @@
-public static class failureclassifier
+public static class FailureClassifier
 {
      public static bool IsTransient(string reason)
     {
