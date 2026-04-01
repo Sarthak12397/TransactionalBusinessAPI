@@ -5,10 +5,17 @@ using System.Text.Json.Serialization;
 using Hangfire;
 using Hangfire.PostgreSql;
 using TransactionalBusiness.Api.Jobs;
-
+using Serilog;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/payment-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Services.AddHangfireServer();
+builder.Host.UseSerilog();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options => {
@@ -35,8 +42,6 @@ builder.Services.AddHangfire(config =>
 );
 
 
-
-builder.Services.AddHangfireServer();
 
 
 var app = builder.Build();

@@ -141,3 +141,12 @@ D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\
 D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\tr-TR\Hangfire.Core.resources.dll
 D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\zh-TW\Hangfire.Core.resources.dll
 D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\zh\Hangfire.Core.resources.dll
+D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\Serilog.dll
+D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\Serilog.AspNetCore.dll
+D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\Serilog.Extensions.Hosting.dll
+D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\Serilog.Extensions.Logging.dll
+D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\Serilog.Formatting.Compact.dll
+D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\Serilog.Settings.Configuration.dll
+D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\Serilog.Sinks.Console.dll
+D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
+D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\bin\Debug\net10.0\Serilog.Sinks.File.dll
