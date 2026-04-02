@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TransactionalBusiness.Api.Data;
 using TransactionalBusiness.Api.Services;
 using TransactionalBusiness.Api.Domain;
+using Serilog;
 
 namespace TransactionalBusiness.Api.Jobs;
 public class RetryTransactionJob
@@ -24,6 +25,9 @@ public class RetryTransactionJob
          => t.Id == transactionId
 );
          if(transaction == null) return;
+
+             Log.Information("Retrying transaction {Id}, attempt {Count}", 
+    transactionId, transaction.RetryCount);
 
          if(transaction.Status != TransactionStatus.RetryScheduled)
          return;
@@ -58,5 +62,7 @@ public class RetryTransactionJob
     }
         }
     }
+
+
 
 }

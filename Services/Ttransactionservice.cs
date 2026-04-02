@@ -1,6 +1,7 @@
 
 using Hangfire;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using TransactionalBusiness.Api.Data;
 using TransactionalBusiness.Api.Domain;
 using TransactionalBusiness.Api.Jobs;
@@ -11,20 +12,25 @@ public class TransactionService : ITransactionService
 {
 
     private readonly PaymentDbContext _db;
+    private readonly ILogger<TransactionService> _logger;
 
 
-    public TransactionService(PaymentDbContext db)
+    public TransactionService(PaymentDbContext db,  ILogger<TransactionService> logger)
     {
         _db = db;
+        _logger = logger;
+
     }
     public async Task<Transaction> CreateAsync(Guid userId, decimal amount, string currency, string idempotencyKey, string description)
     {
 
         var existing = await _db.Transactions.FirstOrDefaultAsync(t => t.IdempotencyKey == idempotencyKey);
-        if(existing != null)
-        {
-            return existing;
-        }
+           
+    if (existing != null)
+    {
+        Log.Information("Duplicate request detected for IdempotencyKey: {Key}", idempotencyKey);
+        return existing;
+    }
 
         var transaction = new Transaction(  userId,
             amount,
@@ -35,6 +41,8 @@ public class TransactionService : ITransactionService
 
         _db.Transactions.Add(transaction);
         await _db.SaveChangesAsync();
+     _logger.LogInformation("Transaction {Id} created for user {UserId}", 
+    transaction.Id, transaction.UserId);
 
         return transaction;
     }
@@ -51,6 +59,8 @@ public class TransactionService : ITransactionService
 {
     failbyId.PermanentFail(reason);
     await _db.SaveChangesAsync();
+_logger.LogWarning("Transaction {Id} failed with reason: {Reason}", 
+    id, reason);
     return; // no retry!
 }
 
@@ -123,7 +133,10 @@ BackgroundJob.Schedule<RetryTransactionJob>(
 
              processbyid.RecordAttempt();
             await _db.SaveChangesAsync();
-        }public async Task CompleteAsync(Guid id)
+        }
+        
+        
+        public async Task CompleteAsync(Guid id)
 {
     var updated = await _db.Transactions
         .Where(t => t.Id == id 

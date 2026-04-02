@@ -1,0 +1,40 @@
+2026-04-02 11:25:06.199 +05:45 [INF] Start installing Hangfire SQL objects...
+2026-04-02 11:25:06.310 +05:45 [INF] Hangfire SQL objects installed.
+2026-04-02 11:25:07.645 +05:45 [INF] Now listening on: http://localhost:5089
+2026-04-02 11:25:07.660 +05:45 [INF] Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: payment_db, Schema: hangfire'
+2026-04-02 11:25:07.667 +05:45 [INF] Using the following options for PostgreSQL job storage:
+2026-04-02 11:25:07.672 +05:45 [INF]     Queue poll interval: 00:00:15.
+2026-04-02 11:25:07.678 +05:45 [INF]     Invisibility timeout: 00:30:00.
+2026-04-02 11:25:07.684 +05:45 [INF]     Use sliding invisibility timeout: False.
+2026-04-02 11:25:07.689 +05:45 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-02 11:25:07.780 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-02 11:25:07.786 +05:45 [INF] Hosting environment: Development
+2026-04-02 11:25:07.794 +05:45 [INF] Content root path: D:\Final_Projects\Transcational_api\TransactionalBusiness.Api
+2026-04-02 11:25:08.547 +05:45 [INF] Server msi:13964:0e02ed1b successfully announced in 766.6505 ms
+2026-04-02 11:25:08.557 +05:45 [INF] Server msi:13964:0e02ed1b is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-02 11:25:08.575 +05:45 [INF] Server msi:13964:0e02ed1b all the dispatchers started
+2026-04-02 11:25:52.429 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 128
+2026-04-02 11:25:52.452 +05:45 [WRN] Failed to determine the https port for redirect.
+2026-04-02 11:25:52.493 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 11:25:52.543 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 11:25:56.423 +05:45 [INF] Executed DbCommand (68ms) [Parameters=[@idempotencyKey='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @idempotencyKey
+LIMIT 1
+2026-04-02 11:25:57.146 +05:45 [INF] Executed DbCommand (18ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Transactions" ("Id", "Amount", "CreatedAt", "Currency", "Description", "FailureReason", "IdempotencyKey", "LastAttemptAt", "MaxRetries", "NextRetryAt", "RetryCount", "Status", "UpdatedAt", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-04-02 11:25:57.186 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 11:25:57.285 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 4728.1932ms
+2026-04-02 11:25:57.289 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 11:25:57.315 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 4886.2774ms
+2026-04-02 11:26:15.603 +05:45 [INF] Server msi:13964:0e02ed1b caught stopping signal...
+2026-04-02 11:26:15.605 +05:45 [INF] Application is shutting down...
+2026-04-02 11:26:15.607 +05:45 [INF] Server msi:13964:0e02ed1b All dispatchers stopped
+2026-04-02 11:26:15.615 +05:45 [INF] Server msi:13964:0e02ed1b successfully reported itself as stopped in 3.0879 ms
+2026-04-02 11:26:15.616 +05:45 [INF] Server msi:13964:0e02ed1b has been stopped in total 11.6759 ms
