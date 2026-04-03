@@ -42,6 +42,7 @@ builder.Services.AddHangfire(config =>
 );
 
 
+builder.Services.AddScoped<StuckTransactionRecoveryJob>();
 
 
 var app = builder.Build();
@@ -70,7 +71,11 @@ app.UseExceptionHandler(errorApp =>
 });
 app.UseRouting();
 app.UseHangfireDashboard("/hangfire");
-
+RecurringJob.AddOrUpdate<StuckTransactionRecoveryJob>(
+    "stuck-transaction-recovery",
+    job => job.ExecuteAsync(),
+    "*/15 * * * * * "
+);
 app.UseAuthorization();
 app.MapControllers();
 
