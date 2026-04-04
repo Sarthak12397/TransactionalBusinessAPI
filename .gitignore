@@ -1,1 +1,10 @@
 logs/*.txt
+appsettings.Development.json
+appsettings.json
+bin/
+obj/
+*.user
+.vs/
+logs/
+docker-compose.override.yml
+appsettings.json
