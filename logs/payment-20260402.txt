@@ -1,0 +1,735 @@
+2026-04-02 11:25:06.199 +05:45 [INF] Start installing Hangfire SQL objects...
+2026-04-02 11:25:06.310 +05:45 [INF] Hangfire SQL objects installed.
+2026-04-02 11:25:07.645 +05:45 [INF] Now listening on: http://localhost:5089
+2026-04-02 11:25:07.660 +05:45 [INF] Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: payment_db, Schema: hangfire'
+2026-04-02 11:25:07.667 +05:45 [INF] Using the following options for PostgreSQL job storage:
+2026-04-02 11:25:07.672 +05:45 [INF]     Queue poll interval: 00:00:15.
+2026-04-02 11:25:07.678 +05:45 [INF]     Invisibility timeout: 00:30:00.
+2026-04-02 11:25:07.684 +05:45 [INF]     Use sliding invisibility timeout: False.
+2026-04-02 11:25:07.689 +05:45 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-02 11:25:07.780 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-02 11:25:07.786 +05:45 [INF] Hosting environment: Development
+2026-04-02 11:25:07.794 +05:45 [INF] Content root path: D:\Final_Projects\Transcational_api\TransactionalBusiness.Api
+2026-04-02 11:25:08.547 +05:45 [INF] Server msi:13964:0e02ed1b successfully announced in 766.6505 ms
+2026-04-02 11:25:08.557 +05:45 [INF] Server msi:13964:0e02ed1b is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-02 11:25:08.575 +05:45 [INF] Server msi:13964:0e02ed1b all the dispatchers started
+2026-04-02 11:25:52.429 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 128
+2026-04-02 11:25:52.452 +05:45 [WRN] Failed to determine the https port for redirect.
+2026-04-02 11:25:52.493 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 11:25:52.543 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 11:25:56.423 +05:45 [INF] Executed DbCommand (68ms) [Parameters=[@idempotencyKey='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @idempotencyKey
+LIMIT 1
+2026-04-02 11:25:57.146 +05:45 [INF] Executed DbCommand (18ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Transactions" ("Id", "Amount", "CreatedAt", "Currency", "Description", "FailureReason", "IdempotencyKey", "LastAttemptAt", "MaxRetries", "NextRetryAt", "RetryCount", "Status", "UpdatedAt", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-04-02 11:25:57.186 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 11:25:57.285 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 4728.1932ms
+2026-04-02 11:25:57.289 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 11:25:57.315 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 4886.2774ms
+2026-04-02 11:26:15.603 +05:45 [INF] Server msi:13964:0e02ed1b caught stopping signal...
+2026-04-02 11:26:15.605 +05:45 [INF] Application is shutting down...
+2026-04-02 11:26:15.607 +05:45 [INF] Server msi:13964:0e02ed1b All dispatchers stopped
+2026-04-02 11:26:15.615 +05:45 [INF] Server msi:13964:0e02ed1b successfully reported itself as stopped in 3.0879 ms
+2026-04-02 11:26:15.616 +05:45 [INF] Server msi:13964:0e02ed1b has been stopped in total 11.6759 ms
+2026-04-02 21:20:06.046 +05:45 [INF] Start installing Hangfire SQL objects...
+2026-04-02 21:20:06.105 +05:45 [INF] Hangfire SQL objects installed.
+2026-04-02 21:20:06.698 +05:45 [INF] Now listening on: http://localhost:5089
+2026-04-02 21:20:06.702 +05:45 [INF] Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: payment_db, Schema: hangfire'
+2026-04-02 21:20:06.703 +05:45 [INF] Using the following options for PostgreSQL job storage:
+2026-04-02 21:20:06.703 +05:45 [INF]     Queue poll interval: 00:00:15.
+2026-04-02 21:20:06.704 +05:45 [INF]     Invisibility timeout: 00:30:00.
+2026-04-02 21:20:06.704 +05:45 [INF]     Use sliding invisibility timeout: False.
+2026-04-02 21:20:06.705 +05:45 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-02 21:20:06.713 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-02 21:20:06.714 +05:45 [INF] Hosting environment: Development
+2026-04-02 21:20:06.715 +05:45 [INF] Content root path: D:\Final_Projects\Transcational_api\TransactionalBusiness.Api
+2026-04-02 21:20:07.235 +05:45 [INF] Server msi:24676:4fa0aefa successfully announced in 521.368 ms
+2026-04-02 21:20:07.238 +05:45 [INF] Server msi:24676:4fa0aefa is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-02 21:20:07.244 +05:45 [INF] Server msi:24676:4fa0aefa all the dispatchers started
+2026-04-02 21:20:07.599 +05:45 [INF] Removed 1 outdated record(s) from 'aggregatedcounter' table.
+2026-04-02 21:20:08.651 +05:45 [INF] Removed 1 outdated record(s) from 'job' table.
+2026-04-02 21:20:22.176 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 128
+2026-04-02 21:20:22.184 +05:45 [WRN] Failed to determine the https port for redirect.
+2026-04-02 21:20:22.195 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:20:22.222 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:20:23.384 +05:45 [INF] Executed DbCommand (6ms) [Parameters=[@idempotencyKey='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @idempotencyKey
+LIMIT 1
+2026-04-02 21:20:23.497 +05:45 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Transactions" ("Id", "Amount", "CreatedAt", "Currency", "Description", "FailureReason", "IdempotencyKey", "LastAttemptAt", "MaxRetries", "NextRetryAt", "RetryCount", "Status", "UpdatedAt", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-04-02 21:20:23.506 +05:45 [INF] Transaction "49927e75-1ab3-4e73-a78c-cbbf29af9fea" created for user "e12635bc-f691-4c09-8e6a-5025e14cd398"
+2026-04-02 21:20:23.511 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:20:23.541 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 1314.395ms
+2026-04-02 21:20:23.543 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:20:23.549 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 1372.9341ms
+2026-04-02 21:20:41.906 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/submit - application/json 128
+2026-04-02 21:20:41.910 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi)'
+2026-04-02 21:20:41.915 +05:45 [INF] Route matched with {action = "Submit", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Submit(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:20:41.935 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:20:41.950 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "Status" = @p0, "UpdatedAt" = @p1
+WHERE "Id" = @p2;
+2026-04-02 21:20:41.958 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:20:41.960 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:20:41.962 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi) in 45.456ms
+2026-04-02 21:20:41.966 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi)'
+2026-04-02 21:20:41.967 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/submit - 200 null application/json; charset=utf-8 60.7434ms
+2026-04-02 21:20:49.267 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/process - application/json 128
+2026-04-02 21:20:49.271 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Process (TransactionalBusinessApi)'
+2026-04-02 21:20:49.276 +05:45 [INF] Route matched with {action = "Process", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Process(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:20:49.369 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-02 21:20:49.375 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:20:49.381 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "RetryCount" = @p1, "UpdatedAt" = @p2
+WHERE "Id" = @p3;
+2026-04-02 21:20:49.386 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:20:49.388 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:20:49.390 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Process (TransactionalBusinessApi) in 111.262ms
+2026-04-02 21:20:49.391 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Process (TransactionalBusinessApi)'
+2026-04-02 21:20:49.392 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/process - 200 null application/json; charset=utf-8 124.7786ms
+2026-04-02 21:20:53.319 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/fail - application/json 128
+2026-04-02 21:20:53.321 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:20:53.326 +05:45 [INF] Route matched with {action = "Fail", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Fail(System.Guid, TransactionalBusiness.Api.Models.FailTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:20:53.336 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:20:53.345 +05:45 [INF] Executed DbCommand (6ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "FailureReason" = @p0, "NextRetryAt" = @p1, "Status" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-02 21:20:53.445 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:20:53.449 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:20:53.451 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi) in 121.3277ms
+2026-04-02 21:20:53.453 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:20:53.454 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/fail - 200 null application/json; charset=utf-8 134.4319ms
+2026-04-02 21:21:05.086 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - application/json 128
+2026-04-02 21:21:05.088 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:05.093 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:21:05.098 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:21:05.101 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:21:05.103 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 8.3858ms
+2026-04-02 21:21:05.104 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:05.105 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - 200 null application/json; charset=utf-8 19.2509ms
+2026-04-02 21:21:15.209 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - application/json 128
+2026-04-02 21:21:15.211 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:15.212 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:21:15.214 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:21:15.215 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:21:15.216 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 3.0757ms
+2026-04-02 21:21:15.217 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:15.217 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - 200 null application/json; charset=utf-8 8.2343ms
+2026-04-02 21:21:16.390 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - application/json 128
+2026-04-02 21:21:16.394 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:16.395 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:21:16.398 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:21:16.400 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:21:16.402 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 5.834ms
+2026-04-02 21:21:16.403 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:16.404 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - 200 null application/json; charset=utf-8 13.8152ms
+2026-04-02 21:21:17.520 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - application/json 128
+2026-04-02 21:21:17.523 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:17.523 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:21:17.527 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:21:17.529 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:21:17.530 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 4.9687ms
+2026-04-02 21:21:17.531 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:17.533 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - 200 null application/json; charset=utf-8 12.9239ms
+2026-04-02 21:21:22.408 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - application/json 128
+2026-04-02 21:21:22.410 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:22.410 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:21:22.414 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:21:22.415 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:21:22.416 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 4.2706ms
+2026-04-02 21:21:22.417 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:22.418 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - 200 null application/json; charset=utf-8 10.1494ms
+2026-04-02 21:21:28.619 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - application/json 128
+2026-04-02 21:21:28.622 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:28.623 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:21:28.626 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:21:28.629 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:21:28.632 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 6.6034ms
+2026-04-02 21:21:28.633 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:28.633 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - 200 null application/json; charset=utf-8 14.27ms
+2026-04-02 21:21:33.056 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - application/json 128
+2026-04-02 21:21:33.057 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:33.058 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:21:33.060 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:21:33.061 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:21:33.062 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 3.4292ms
+2026-04-02 21:21:33.063 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:33.063 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - 200 null application/json; charset=utf-8 7.3659ms
+2026-04-02 21:21:37.789 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-02 21:21:37.792 +05:45 [INF] Retrying transaction "49927e75-1ab3-4e73-a78c-cbbf29af9fea", attempt 1
+2026-04-02 21:21:37.795 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-02 21:21:37.797 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:21:37.800 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-02 21:21:37.807 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-02 21:21:41.624 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - application/json 128
+2026-04-02 21:21:41.626 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:41.626 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:21:41.630 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:21:41.631 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:21:41.632 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 4.0112ms
+2026-04-02 21:21:41.633 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:21:41.633 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/49927e75-1ab3-4e73-a78c-cbbf29af9fea/ - 200 null application/json; charset=utf-8 9.6201ms
+2026-04-02 21:22:11.652 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/ - application/json 127
+2026-04-02 21:22:11.655 +05:45 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-04-02 21:22:11.655 +05:45 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-04-02 21:22:11.656 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/ - 405 0 null 4.0783ms
+2026-04-02 21:22:19.763 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 127
+2026-04-02 21:22:19.766 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:22:19.767 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:22:19.771 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@idempotencyKey='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @idempotencyKey
+LIMIT 1
+2026-04-02 21:22:19.773 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 3.7057ms
+2026-04-02 21:22:19.774 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:22:19.785 +05:45 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Amount should be greater than zero
+   at TransactionalBusiness.Api.Domain.Transaction..ctor(Guid userId, Decimal amount, String currency, String idempotencyKey, String description) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Domain\Transaction.cs:line 110
+   at TransactionalBusiness.Api.Services.TransactionService.CreateAsync(Guid userId, Decimal amount, String currency, String idempotencyKey, String description) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Services\Ttransactionservice.cs:line 35
+   at TransactionalBusiness.Api.Controllers.TransactionsController.Create(CreateTransactionRequest request) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Controller\TransactionsController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-02 21:22:19.816 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 500 null application/json; charset=utf-8 52.4068ms
+2026-04-02 21:22:33.752 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 129
+2026-04-02 21:22:33.754 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:22:33.755 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:22:33.758 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@idempotencyKey='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @idempotencyKey
+LIMIT 1
+2026-04-02 21:22:33.765 +05:45 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Transactions" ("Id", "Amount", "CreatedAt", "Currency", "Description", "FailureReason", "IdempotencyKey", "LastAttemptAt", "MaxRetries", "NextRetryAt", "RetryCount", "Status", "UpdatedAt", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-04-02 21:22:33.768 +05:45 [INF] Transaction "9585b188-d633-4968-97c8-aac6d7df0946" created for user "4bf3570a-4ba0-482a-a091-c4e52b032289"
+2026-04-02 21:22:33.769 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:22:33.771 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 15.5461ms
+2026-04-02 21:22:33.772 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:22:33.773 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 21.2027ms
+2026-04-02 21:22:55.928 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - application/json 129
+2026-04-02 21:22:55.931 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:22:55.931 +05:45 [INF] Route matched with {action = "Fail", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Fail(System.Guid, TransactionalBusiness.Api.Models.FailTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:22:55.934 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:22:55.936 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi) in 3.4383ms
+2026-04-02 21:22:55.937 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:22:55.938 +05:45 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot retry from Pending
+   at TransactionalBusiness.Api.Domain.Transaction.ScheduleRetry(String reason, DateTime nextRetryAt) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Domain\Transaction.cs:line 67
+   at TransactionalBusiness.Api.Services.TransactionService.FailAsync(Guid id, String reason) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Services\Ttransactionservice.cs:line 69
+   at TransactionalBusiness.Api.Controllers.TransactionsController.Fail(Guid id, FailTransactionRequest request) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Controller\TransactionsController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-02 21:22:55.942 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - 400 null application/json; charset=utf-8 14.0792ms
+2026-04-02 21:23:00.897 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/submit - application/json 129
+2026-04-02 21:23:00.900 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi)'
+2026-04-02 21:23:00.900 +05:45 [INF] Route matched with {action = "Submit", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Submit(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:23:00.903 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:00.906 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "Status" = @p0, "UpdatedAt" = @p1
+WHERE "Id" = @p2;
+2026-04-02 21:23:00.908 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:00.909 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:23:00.910 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi) in 8.5208ms
+2026-04-02 21:23:00.911 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi)'
+2026-04-02 21:23:00.912 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/submit - 200 null application/json; charset=utf-8 14.8271ms
+2026-04-02 21:23:03.228 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - application/json 129
+2026-04-02 21:23:03.230 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:23:03.231 +05:45 [INF] Route matched with {action = "Fail", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Fail(System.Guid, TransactionalBusiness.Api.Models.FailTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:23:03.234 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:03.235 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi) in 2.6839ms
+2026-04-02 21:23:03.236 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:23:03.236 +05:45 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot retry from Submitted
+   at TransactionalBusiness.Api.Domain.Transaction.ScheduleRetry(String reason, DateTime nextRetryAt) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Domain\Transaction.cs:line 67
+   at TransactionalBusiness.Api.Services.TransactionService.FailAsync(Guid id, String reason) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Services\Ttransactionservice.cs:line 69
+   at TransactionalBusiness.Api.Controllers.TransactionsController.Fail(Guid id, FailTransactionRequest request) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Controller\TransactionsController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-02 21:23:03.239 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - 400 null application/json; charset=utf-8 11.5267ms
+2026-04-02 21:23:08.053 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/process - application/json 129
+2026-04-02 21:23:08.055 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Process (TransactionalBusinessApi)'
+2026-04-02 21:23:08.056 +05:45 [INF] Route matched with {action = "Process", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Process(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:23:08.063 +05:45 [INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-02 21:23:08.067 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:08.069 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "RetryCount" = @p1, "UpdatedAt" = @p2
+WHERE "Id" = @p3;
+2026-04-02 21:23:08.072 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:08.073 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:23:08.074 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Process (TransactionalBusinessApi) in 17.0008ms
+2026-04-02 21:23:08.075 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Process (TransactionalBusinessApi)'
+2026-04-02 21:23:08.075 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/process - 200 null application/json; charset=utf-8 22.7716ms
+2026-04-02 21:23:13.515 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - application/json 129
+2026-04-02 21:23:13.517 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:23:13.517 +05:45 [INF] Route matched with {action = "Fail", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Fail(System.Guid, TransactionalBusiness.Api.Models.FailTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:23:13.520 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:13.523 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "FailureReason" = @p0, "NextRetryAt" = @p1, "Status" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-02 21:23:13.534 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:13.535 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:23:13.536 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi) in 17.998ms
+2026-04-02 21:23:13.537 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:23:13.537 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - 200 null application/json; charset=utf-8 22.5258ms
+2026-04-02 21:23:15.209 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - application/json 129
+2026-04-02 21:23:15.212 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:23:15.212 +05:45 [INF] Route matched with {action = "Fail", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Fail(System.Guid, TransactionalBusiness.Api.Models.FailTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:23:15.215 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:15.218 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi) in 3.7204ms
+2026-04-02 21:23:15.219 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:23:15.220 +05:45 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot retry from RetryScheduled
+   at TransactionalBusiness.Api.Domain.Transaction.ScheduleRetry(String reason, DateTime nextRetryAt) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Domain\Transaction.cs:line 67
+   at TransactionalBusiness.Api.Services.TransactionService.FailAsync(Guid id, String reason) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Services\Ttransactionservice.cs:line 69
+   at TransactionalBusiness.Api.Controllers.TransactionsController.Fail(Guid id, FailTransactionRequest request) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Controller\TransactionsController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-02 21:23:15.225 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - 400 null application/json; charset=utf-8 15.8488ms
+2026-04-02 21:23:43.002 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - application/json 129
+2026-04-02 21:23:43.005 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:23:43.006 +05:45 [INF] Route matched with {action = "Fail", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Fail(System.Guid, TransactionalBusiness.Api.Models.FailTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:23:43.009 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:43.010 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi) in 2.4165ms
+2026-04-02 21:23:43.012 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:23:43.013 +05:45 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot retry from RetryScheduled
+   at TransactionalBusiness.Api.Domain.Transaction.ScheduleRetry(String reason, DateTime nextRetryAt) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Domain\Transaction.cs:line 67
+   at TransactionalBusiness.Api.Services.TransactionService.FailAsync(Guid id, String reason) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Services\Ttransactionservice.cs:line 69
+   at TransactionalBusiness.Api.Controllers.TransactionsController.Fail(Guid id, FailTransactionRequest request) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Controller\TransactionsController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-02 21:23:43.017 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - 400 null application/json; charset=utf-8 15.1186ms
+2026-04-02 21:23:49.238 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/ - application/json 129
+2026-04-02 21:23:49.241 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:23:49.242 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:23:49.244 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:49.245 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:23:49.246 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 3.3303ms
+2026-04-02 21:23:49.248 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:23:49.249 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/ - 200 null application/json; charset=utf-8 11.554ms
+2026-04-02 21:23:50.953 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/ - application/json 129
+2026-04-02 21:23:50.956 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:23:50.956 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:23:50.959 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:50.961 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:23:50.962 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 4.1033ms
+2026-04-02 21:23:50.963 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:23:50.964 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/ - 200 null application/json; charset=utf-8 10.7748ms
+2026-04-02 21:23:52.884 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-02 21:23:52.885 +05:45 [INF] Retrying transaction "9585b188-d633-4968-97c8-aac6d7df0946", attempt 1
+2026-04-02 21:23:52.887 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-02 21:23:52.889 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:23:52.890 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-02 21:23:52.892 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-02 21:24:15.329 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/ - application/json 129
+2026-04-02 21:24:15.331 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:24:15.331 +05:45 [INF] Route matched with {action = "GetById", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:24:15.333 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:24:15.335 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:24:15.335 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi) in 3.3524ms
+2026-04-02 21:24:15.336 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.GetById (TransactionalBusinessApi)'
+2026-04-02 21:24:15.337 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/ - 200 null application/json; charset=utf-8 8.1929ms
+2026-04-02 21:24:19.167 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - application/json 129
+2026-04-02 21:24:19.168 +05:45 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-04-02 21:24:19.168 +05:45 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-04-02 21:24:19.169 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - 405 0 null 2.4735ms
+2026-04-02 21:24:23.909 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - application/json 129
+2026-04-02 21:24:23.911 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:24:23.911 +05:45 [INF] Route matched with {action = "Fail", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Fail(System.Guid, TransactionalBusiness.Api.Models.FailTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:24:23.913 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:24:23.915 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi) in 2.3671ms
+2026-04-02 21:24:23.915 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:24:23.916 +05:45 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot retry from Completed
+   at TransactionalBusiness.Api.Domain.Transaction.ScheduleRetry(String reason, DateTime nextRetryAt) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Domain\Transaction.cs:line 67
+   at TransactionalBusiness.Api.Services.TransactionService.FailAsync(Guid id, String reason) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Services\Ttransactionservice.cs:line 69
+   at TransactionalBusiness.Api.Controllers.TransactionsController.Fail(Guid id, FailTransactionRequest request) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Controller\TransactionsController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-02 21:24:23.919 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/9585b188-d633-4968-97c8-aac6d7df0946/fail - 400 null application/json; charset=utf-8 10.2193ms
+2026-04-02 21:25:33.488 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 127
+2026-04-02 21:25:33.491 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:25:33.492 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:25:33.495 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@idempotencyKey='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @idempotencyKey
+LIMIT 1
+2026-04-02 21:25:33.497 +05:45 [INF] Duplicate request detected for IdempotencyKey: serilog-test-006
+2026-04-02 21:25:33.498 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:25:33.499 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 6.1972ms
+2026-04-02 21:25:33.501 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:25:33.502 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 13.3286ms
+2026-04-02 21:25:48.647 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 127
+2026-04-02 21:25:48.648 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:25:48.649 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:25:48.652 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@idempotencyKey='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @idempotencyKey
+LIMIT 1
+2026-04-02 21:25:48.659 +05:45 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Transactions" ("Id", "Amount", "CreatedAt", "Currency", "Description", "FailureReason", "IdempotencyKey", "LastAttemptAt", "MaxRetries", "NextRetryAt", "RetryCount", "Status", "UpdatedAt", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-04-02 21:25:48.660 +05:45 [INF] Transaction "afb4532b-4a4f-4e17-8f65-7ab8ed53d459" created for user "0b7e4829-8d23-4e2a-af52-c3ca9a4b0e67"
+2026-04-02 21:25:48.661 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:25:48.662 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 11.7983ms
+2026-04-02 21:25:48.662 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:25:48.663 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 15.8963ms
+2026-04-02 21:26:23.228 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/afb4532b-4a4f-4e17-8f65-7ab8ed53d49/fail - application/json 39
+2026-04-02 21:26:23.229 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:26:23.230 +05:45 [INF] Route matched with {action = "Fail", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Fail(System.Guid, TransactionalBusiness.Api.Models.FailTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:26:23.232 +05:45 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-02 21:26:23.244 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi) in 13.1422ms
+2026-04-02 21:26:23.245 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:26:23.246 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/afb4532b-4a4f-4e17-8f65-7ab8ed53d49/fail - 400 null application/problem+json; charset=utf-8 17.8468ms
+2026-04-02 21:26:28.842 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/afb4532b-4a4f-4e17-8f65-7ab8ed53d49/submit - application/json 39
+2026-04-02 21:26:28.845 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi)'
+2026-04-02 21:26:28.846 +05:45 [INF] Route matched with {action = "Submit", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Submit(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:26:28.848 +05:45 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-02 21:26:28.849 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi) in 1.9687ms
+2026-04-02 21:26:28.851 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi)'
+2026-04-02 21:26:28.852 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/afb4532b-4a4f-4e17-8f65-7ab8ed53d49/submit - 400 null application/problem+json; charset=utf-8 10.4285ms
+2026-04-02 21:26:44.493 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 128
+2026-04-02 21:26:44.495 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:26:44.497 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:26:44.502 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@idempotencyKey='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @idempotencyKey
+LIMIT 1
+2026-04-02 21:26:44.504 +05:45 [INF] Duplicate request detected for IdempotencyKey: serilog-test-006
+2026-04-02 21:26:44.505 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:26:44.506 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 7.0301ms
+2026-04-02 21:26:44.508 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:26:44.509 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 15.8048ms
+2026-04-02 21:26:49.799 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 128
+2026-04-02 21:26:49.800 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:26:49.801 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:26:49.804 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@idempotencyKey='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @idempotencyKey
+LIMIT 1
+2026-04-02 21:26:49.811 +05:45 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Transactions" ("Id", "Amount", "CreatedAt", "Currency", "Description", "FailureReason", "IdempotencyKey", "LastAttemptAt", "MaxRetries", "NextRetryAt", "RetryCount", "Status", "UpdatedAt", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-04-02 21:26:49.812 +05:45 [INF] Transaction "4200dea8-dc43-40dc-b3b9-8756c524524b" created for user "5d6ecb5a-2edf-412a-b82b-8d0cceba8ac3"
+2026-04-02 21:26:49.813 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:26:49.815 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 12.322ms
+2026-04-02 21:26:49.816 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-02 21:26:49.818 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 18.807ms
+2026-04-02 21:26:59.844 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/4200dea8-dc43-40dc-b3b9-8756c524524b/submit - application/json 128
+2026-04-02 21:26:59.846 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi)'
+2026-04-02 21:26:59.846 +05:45 [INF] Route matched with {action = "Submit", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Submit(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:26:59.848 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:26:59.856 +05:45 [INF] Executed DbCommand (6ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "Status" = @p0, "UpdatedAt" = @p1
+WHERE "Id" = @p2;
+2026-04-02 21:26:59.860 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:26:59.861 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:26:59.862 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi) in 14.5169ms
+2026-04-02 21:26:59.863 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Submit (TransactionalBusinessApi)'
+2026-04-02 21:26:59.863 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/4200dea8-dc43-40dc-b3b9-8756c524524b/submit - 200 null application/json; charset=utf-8 19.0882ms
+2026-04-02 21:27:02.375 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/4200dea8-dc43-40dc-b3b9-8756c524524b/process - application/json 128
+2026-04-02 21:27:02.377 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Process (TransactionalBusinessApi)'
+2026-04-02 21:27:02.378 +05:45 [INF] Route matched with {action = "Process", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Process(System.Guid) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:27:02.385 +05:45 [INF] Executed DbCommand (6ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-02 21:27:02.388 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:27:02.391 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "RetryCount" = @p1, "UpdatedAt" = @p2
+WHERE "Id" = @p3;
+2026-04-02 21:27:02.393 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:27:02.394 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:27:02.395 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Process (TransactionalBusinessApi) in 16.2263ms
+2026-04-02 21:27:02.396 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Process (TransactionalBusinessApi)'
+2026-04-02 21:27:02.396 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/4200dea8-dc43-40dc-b3b9-8756c524524b/process - 200 null application/json; charset=utf-8 21.592ms
+2026-04-02 21:27:16.832 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/4200dea8-dc43-40dc-b3b9-8756c524524b/fail - application/json 40
+2026-04-02 21:27:16.836 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:27:16.838 +05:45 [INF] Route matched with {action = "Fail", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Fail(System.Guid, TransactionalBusiness.Api.Models.FailTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-02 21:27:16.844 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:27:16.847 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "FailureReason" = @p0, "LastAttemptAt" = @p1, "Status" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-02 21:27:16.850 +05:45 [WRN] Transaction "4200dea8-dc43-40dc-b3b9-8756c524524b" failed with reason: Insufficient funds
+2026-04-02 21:27:16.852 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-02 21:27:16.854 +05:45 [INF] Executing OkObjectResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-02 21:27:16.855 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi) in 14.622ms
+2026-04-02 21:27:16.856 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Fail (TransactionalBusinessApi)'
+2026-04-02 21:27:16.857 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/4200dea8-dc43-40dc-b3b9-8756c524524b/fail - 200 null application/json; charset=utf-8 25.4794ms
+2026-04-02 22:16:18.471 +05:45 [INF] Server msi:24676:4fa0aefa caught stopping signal...
+2026-04-02 22:16:18.473 +05:45 [INF] Application is shutting down...
+2026-04-02 22:16:18.475 +05:45 [INF] Server msi:24676:4fa0aefa All dispatchers stopped
+2026-04-02 22:16:18.477 +05:45 [INF] Server msi:24676:4fa0aefa successfully reported itself as stopped in 0.7683 ms
+2026-04-02 22:16:18.478 +05:45 [INF] Server msi:24676:4fa0aefa has been stopped in total 4.5797 ms

@@ -1,0 +1,606 @@
+2026-04-03 18:20:10.542 +05:45 [INF] Start installing Hangfire SQL objects...
+2026-04-03 18:20:10.603 +05:45 [INF] Hangfire SQL objects installed.
+2026-04-03 18:20:11.747 +05:45 [INF] Now listening on: http://localhost:5089
+2026-04-03 18:20:11.750 +05:45 [INF] Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: payment_db, Schema: hangfire'
+2026-04-03 18:20:11.751 +05:45 [INF] Using the following options for PostgreSQL job storage:
+2026-04-03 18:20:11.752 +05:45 [INF]     Queue poll interval: 00:00:15.
+2026-04-03 18:20:11.752 +05:45 [INF]     Invisibility timeout: 00:30:00.
+2026-04-03 18:20:11.753 +05:45 [INF]     Use sliding invisibility timeout: False.
+2026-04-03 18:20:11.754 +05:45 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-03 18:20:11.762 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-03 18:20:11.762 +05:45 [INF] Hosting environment: Development
+2026-04-03 18:20:11.763 +05:45 [INF] Content root path: D:\Final_Projects\Transcational_api\TransactionalBusiness.Api
+2026-04-03 18:20:11.778 +05:45 [INF] Server msi:14588:96200932 successfully announced in 16.3814 ms
+2026-04-03 18:20:11.780 +05:45 [INF] Server msi:14588:96200932 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-03 18:20:11.786 +05:45 [INF] Server msi:14588:96200932 all the dispatchers started
+2026-04-03 18:20:15.997 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/hangfire - null null
+2026-04-03 18:20:16.004 +05:45 [WRN] Failed to determine the https port for redirect.
+2026-04-03 18:20:16.105 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/hangfire - 200 null text/html 107.6989ms
+2026-04-03 18:20:16.119 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/hangfire/css-dark182301518198342 - null null
+2026-04-03 18:20:16.119 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/hangfire/css18230582725187 - null null
+2026-04-03 18:20:16.120 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/hangfire/js182301055128538 - null null
+2026-04-03 18:20:16.126 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/hangfire/css-dark182301518198342 - 200 null text/css 6.5533ms
+2026-04-03 18:20:16.129 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/hangfire/css18230582725187 - 200 null text/css 9.995ms
+2026-04-03 18:20:16.141 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/hangfire/js182301055128538 - 200 null application/javascript 20.8232ms
+2026-04-03 18:20:16.155 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/hangfire/fonts/glyphicons-halflings-regular/woff2 - null null
+2026-04-03 18:20:16.160 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/hangfire/fonts/glyphicons-halflings-regular/woff2 - 200 null font/woff2 4.753ms
+2026-04-03 18:20:17.978 +05:45 [INF] Request starting HTTP/1.1 GET http://localhost:5089/hangfire/recurring - null null
+2026-04-03 18:20:18.059 +05:45 [INF] Request finished HTTP/1.1 GET http://localhost:5089/hangfire/recurring - 200 null text/html 81.7065ms
+2026-04-03 18:20:20.096 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:20.132 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 36.3269ms
+2026-04-03 18:20:22.145 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:22.156 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 10.9334ms
+2026-04-03 18:20:24.310 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:24.320 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 10.4575ms
+2026-04-03 18:20:27.310 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:27.330 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 20.3819ms
+2026-04-03 18:20:28.205 +05:45 [INF] Executed DbCommand (6ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:20:28.258 +05:45 [INF] Found 11 stuck transactions
+2026-04-03 18:20:28.259 +05:45 [WRN] Recovering stuck transaction "65e43812-d03a-43f4-9b73-f3be4e1653b2" stuck in "Processing" since "2026-03-29T16:50:06.4434490Z"
+2026-04-03 18:20:28.275 +05:45 [WRN] Recovering stuck transaction "91c969a0-7a63-44a7-b47d-77245dcf6c91" stuck in "Processing" since "2026-03-29T16:34:59.6453180Z"
+2026-04-03 18:20:28.283 +05:45 [WRN] Recovering stuck transaction "ebd326e5-0cea-46a4-8157-b3c0d406a800" stuck in "Processing" since "2026-03-29T16:35:44.1638720Z"
+2026-04-03 18:20:28.291 +05:45 [WRN] Recovering stuck transaction "622e1cdb-adfd-490d-9e71-ea59a8b6f7ac" stuck in "Processing" since "2026-03-29T16:38:25.0897150Z"
+2026-04-03 18:20:28.298 +05:45 [WRN] Recovering stuck transaction "a4948393-11c7-41ce-b6f9-e0b04e7e739b" stuck in "Processing" since "2026-03-29T16:52:12.3702560Z"
+2026-04-03 18:20:28.306 +05:45 [WRN] Recovering stuck transaction "6f799946-feff-4841-b996-e11dcc5988d0" stuck in "Processing" since "2026-03-29T17:06:39.1789700Z"
+2026-04-03 18:20:28.314 +05:45 [WRN] Recovering stuck transaction "146add3e-776e-4dec-bf7d-22c14fc866bc" stuck in "Processing" since "2026-03-29T16:43:15.6732480Z"
+2026-04-03 18:20:28.320 +05:45 [WRN] Recovering stuck transaction "d5f2ef7f-076c-4e3c-846a-1e785cd59d47" stuck in "Processing" since "2026-03-29T16:55:15.4055200Z"
+2026-04-03 18:20:28.328 +05:45 [WRN] Recovering stuck transaction "fec94666-f4ce-41c8-9217-f0d45d228f3e" stuck in "Processing" since "2026-03-29T16:47:45.8865430Z"
+2026-04-03 18:20:28.337 +05:45 [WRN] Recovering stuck transaction "782e8467-5728-46f9-a429-c30ae3821cae" stuck in "Processing" since "2026-03-29T17:11:14.5738740Z"
+2026-04-03 18:20:28.344 +05:45 [WRN] Recovering stuck transaction "f513c11e-0c96-4266-b350-d54fa384bb52" stuck in "Processing" since "2026-03-29T16:58:47.5718810Z"
+2026-04-03 18:20:28.442 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p9='?' (DbType = Guid), @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Int32), @p8='?' (DbType = DateTime), @p14='?' (DbType = Guid), @p10='?', @p11='?' (DbType = DateTime), @p12='?' (DbType = Int32), @p13='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p15='?', @p16='?' (DbType = DateTime), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime), @p24='?' (DbType = Guid), @p20='?', @p21='?' (DbType = DateTime), @p22='?' (DbType = Int32), @p23='?' (DbType = DateTime), @p29='?' (DbType = Guid), @p25='?', @p26='?' (DbType = DateTime), @p27='?' (DbType = Int32), @p28='?' (DbType = DateTime), @p34='?' (DbType = Guid), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Int32), @p33='?' (DbType = DateTime), @p39='?' (DbType = Guid), @p35='?', @p36='?' (DbType = DateTime), @p37='?' (DbType = Int32), @p38='?' (DbType = DateTime), @p44='?' (DbType = Guid), @p40='?', @p41='?' (DbType = DateTime), @p42='?' (DbType = Int32), @p43='?' (DbType = DateTime), @p49='?' (DbType = Guid), @p45='?', @p46='?' (DbType = DateTime), @p47='?' (DbType = Int32), @p48='?' (DbType = DateTime), @p54='?' (DbType = Guid), @p50='?', @p51='?' (DbType = DateTime), @p52='?' (DbType = Int32), @p53='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "FailureReason" = @p0, "NextRetryAt" = @p1, "Status" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+UPDATE "Transactions" SET "FailureReason" = @p5, "NextRetryAt" = @p6, "Status" = @p7, "UpdatedAt" = @p8
+WHERE "Id" = @p9;
+UPDATE "Transactions" SET "FailureReason" = @p10, "NextRetryAt" = @p11, "Status" = @p12, "UpdatedAt" = @p13
+WHERE "Id" = @p14;
+UPDATE "Transactions" SET "FailureReason" = @p15, "NextRetryAt" = @p16, "Status" = @p17, "UpdatedAt" = @p18
+WHERE "Id" = @p19;
+UPDATE "Transactions" SET "FailureReason" = @p20, "NextRetryAt" = @p21, "Status" = @p22, "UpdatedAt" = @p23
+WHERE "Id" = @p24;
+UPDATE "Transactions" SET "FailureReason" = @p25, "NextRetryAt" = @p26, "Status" = @p27, "UpdatedAt" = @p28
+WHERE "Id" = @p29;
+UPDATE "Transactions" SET "FailureReason" = @p30, "NextRetryAt" = @p31, "Status" = @p32, "UpdatedAt" = @p33
+WHERE "Id" = @p34;
+UPDATE "Transactions" SET "FailureReason" = @p35, "NextRetryAt" = @p36, "Status" = @p37, "UpdatedAt" = @p38
+WHERE "Id" = @p39;
+UPDATE "Transactions" SET "FailureReason" = @p40, "NextRetryAt" = @p41, "Status" = @p42, "UpdatedAt" = @p43
+WHERE "Id" = @p44;
+UPDATE "Transactions" SET "FailureReason" = @p45, "NextRetryAt" = @p46, "Status" = @p47, "UpdatedAt" = @p48
+WHERE "Id" = @p49;
+UPDATE "Transactions" SET "FailureReason" = @p50, "NextRetryAt" = @p51, "Status" = @p52, "UpdatedAt" = @p53
+WHERE "Id" = @p54;
+2026-04-03 18:20:30.310 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:30.314 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 4.3763ms
+2026-04-03 18:20:33.313 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:33.324 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 11.491ms
+2026-04-03 18:20:36.308 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:36.323 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 15.2946ms
+2026-04-03 18:20:39.302 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:39.309 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.8515ms
+2026-04-03 18:20:41.967 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:20:41.969 +05:45 [INF] Found 11 stuck transactions
+2026-04-03 18:20:41.969 +05:45 [WRN] Recovering stuck transaction "6f799946-feff-4841-b996-e11dcc5988d0" stuck in "RetryScheduled" since "2026-03-29T17:06:39.1789700Z"
+2026-04-03 18:20:41.976 +05:45 [WRN] Failed to process the job '26': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:40.
+System.InvalidOperationException: Cannot retry from RetryScheduled
+   at TransactionalBusiness.Api.Domain.Transaction.ScheduleRetry(String reason, DateTime nextRetryAt) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Domain\Transaction.cs:line 67
+   at TransactionalBusiness.Api.Jobs.StuckTransactionRecoveryJob.ExecuteAsync() in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Jobs\TransactionRecoveryJob.cs:line 44
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+2026-04-03 18:20:42.302 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:42.313 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 11.7966ms
+2026-04-03 18:20:45.306 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:45.314 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 7.8732ms
+2026-04-03 18:20:48.313 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:48.321 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 8.4161ms
+2026-04-03 18:20:51.307 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:51.313 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.7541ms
+2026-04-03 18:20:54.312 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:54.319 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.496ms
+2026-04-03 18:20:57.056 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:20:57.060 +05:45 [INF] Found 11 stuck transactions
+2026-04-03 18:20:57.061 +05:45 [WRN] Recovering stuck transaction "6f799946-feff-4841-b996-e11dcc5988d0" stuck in "RetryScheduled" since "2026-03-29T17:06:39.1789700Z"
+2026-04-03 18:20:57.102 +05:45 [WRN] Failed to process the job '27': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:16.
+System.InvalidOperationException: Cannot retry from RetryScheduled
+   at TransactionalBusiness.Api.Domain.Transaction.ScheduleRetry(String reason, DateTime nextRetryAt) in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Domain\Transaction.cs:line 67
+   at TransactionalBusiness.Api.Jobs.StuckTransactionRecoveryJob.ExecuteAsync() in D:\Final_Projects\Transcational_api\TransactionalBusiness.Api\Jobs\TransactionRecoveryJob.cs:line 44
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+2026-04-03 18:20:57.311 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:20:57.317 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.5255ms
+2026-04-03 18:21:00.311 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:00.318 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 7.5818ms
+2026-04-03 18:21:03.309 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:03.314 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 5.0369ms
+2026-04-03 18:21:06.306 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:06.313 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.7795ms
+2026-04-03 18:21:09.302 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:09.308 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 5.6229ms
+2026-04-03 18:21:11.884 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.885 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.885 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.886 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.886 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.886 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.888 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.891 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.890 +05:45 [INF] Retrying transaction "ebd326e5-0cea-46a4-8157-b3c0d406a800", attempt 0
+2026-04-03 18:21:11.891 +05:45 [INF] Retrying transaction "65e43812-d03a-43f4-9b73-f3be4e1653b2", attempt 2
+2026-04-03 18:21:11.894 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.897 +05:45 [INF] Retrying transaction "a4948393-11c7-41ce-b6f9-e0b04e7e739b", attempt 2
+2026-04-03 18:21:11.899 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.900 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@transactionId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @transactionId
+LIMIT 1
+2026-04-03 18:21:11.900 +05:45 [INF] Retrying transaction "622e1cdb-adfd-490d-9e71-ea59a8b6f7ac", attempt 0
+2026-04-03 18:21:11.902 +05:45 [INF] Retrying transaction "91c969a0-7a63-44a7-b47d-77245dcf6c91", attempt 0
+2026-04-03 18:21:11.904 +05:45 [INF] Retrying transaction "6f799946-feff-4841-b996-e11dcc5988d0", attempt 2
+2026-04-03 18:21:11.906 +05:45 [INF] Retrying transaction "146add3e-776e-4dec-bf7d-22c14fc866bc", attempt 2
+2026-04-03 18:21:11.908 +05:45 [INF] Retrying transaction "d5f2ef7f-076c-4e3c-846a-1e785cd59d47", attempt 2
+2026-04-03 18:21:11.913 +05:45 [INF] Retrying transaction "fec94666-f4ce-41c8-9217-f0d45d228f3e", attempt 2
+2026-04-03 18:21:11.918 +05:45 [INF] Retrying transaction "782e8467-5728-46f9-a429-c30ae3821cae", attempt 2
+2026-04-03 18:21:11.921 +05:45 [INF] Retrying transaction "f513c11e-0c96-4266-b350-d54fa384bb52", attempt 2
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.937 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.938 +05:45 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "LastAttemptAt" = @p2,
+    "NextRetryAt" = NULL,
+    "UpdatedAt" = @p4
+WHERE t."Id" = @id AND t."Status" IN (3, 6)
+2026-04-03 18:21:11.945 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.946 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.947 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.950 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.952 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.952 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.955 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.957 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.960 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.962 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.965 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Id" = @id
+LIMIT 1
+2026-04-03 18:21:11.968 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.970 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.973 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.976 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.979 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.982 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.985 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.986 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.989 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.991 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.991 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:21:11.992 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" SET "LastAttemptAt" = @p0, "NextRetryAt" = @p1, "RetryCount" = @p2, "UpdatedAt" = @p3
+WHERE "Id" = @p4;
+2026-04-03 18:21:11.997 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:11.997 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:11.998 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:11.999 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:12.001 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:12.003 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:12.005 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:12.006 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:12.008 +05:45 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:12.011 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:12.012 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 18:21:12.016 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p3='?' (DbType = DateTime), @id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Transactions" AS t
+SET "Status" = @p,
+    "FailureReason" = NULL,
+    "UpdatedAt" = @p3
+WHERE t."Id" = @id AND t."Status" = 5
+2026-04-03 18:21:12.307 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:12.312 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 4.8984ms
+2026-04-03 18:21:15.302 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:15.309 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.7652ms
+2026-04-03 18:21:18.307 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:18.313 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.9458ms
+2026-04-03 18:21:21.301 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:21.309 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 7.8654ms
+2026-04-03 18:21:24.308 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:24.318 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 9.9133ms
+2026-04-03 18:21:26.943 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:21:26.945 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 18:21:26.946 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:21:26.947 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 18:21:27.004 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:21:27.005 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 18:21:27.302 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:27.306 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 3.7531ms
+2026-04-03 18:21:30.312 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:30.318 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.0283ms
+2026-04-03 18:21:33.306 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:33.311 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 4.746ms
+2026-04-03 18:21:36.310 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:36.316 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 5.7655ms
+2026-04-03 18:21:39.314 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:39.319 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 5.4851ms
+2026-04-03 18:21:42.035 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:21:42.040 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 18:21:42.311 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:42.317 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 5.7034ms
+2026-04-03 18:21:45.314 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:45.318 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 4.1ms
+2026-04-03 18:21:48.310 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:48.320 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 9.6216ms
+2026-04-03 18:21:51.315 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:51.319 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 4.8179ms
+2026-04-03 18:21:54.303 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:54.309 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.0482ms
+2026-04-03 18:21:56.312 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:56.315 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 2.7257ms
+2026-04-03 18:21:57.042 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:21:57.044 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 18:21:58.318 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:21:58.320 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 2.6494ms
+2026-04-03 18:22:01.312 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:22:01.319 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.9016ms
+2026-04-03 18:22:04.306 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:22:04.314 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 8.2347ms
+2026-04-03 18:22:07.302 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:22:07.309 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 6.532ms
+2026-04-03 18:22:10.305 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:22:10.313 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 8.817ms
+2026-04-03 18:22:12.074 +05:45 [INF] Executed DbCommand (1ms) [Parameters=[@threshold='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @threshold
+2026-04-03 18:22:12.076 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 18:22:13.300 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:22:13.307 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 7.2195ms
+2026-04-03 18:22:16.301 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:22:16.310 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 9.3355ms
+2026-04-03 18:22:18.318 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/hangfire/stats - application/x-www-form-urlencoded; charset=UTF-8 167
+2026-04-03 18:22:18.326 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/hangfire/stats - 200 null application/json 7.7632ms
+2026-04-03 18:22:18.359 +05:45 [INF] Server msi:14588:96200932 caught stopping signal...
+2026-04-03 18:22:18.361 +05:45 [INF] Application is shutting down...
+2026-04-03 18:22:18.362 +05:45 [INF] Server msi:14588:96200932 All dispatchers stopped
+2026-04-03 18:22:18.365 +05:45 [INF] Server msi:14588:96200932 successfully reported itself as stopped in 1.1669 ms
+2026-04-03 18:22:18.365 +05:45 [INF] Server msi:14588:96200932 has been stopped in total 4.8022 ms
+2026-04-03 19:44:42.925 +05:45 [INF] Start installing Hangfire SQL objects...
+2026-04-03 19:44:42.995 +05:45 [INF] Hangfire SQL objects installed.
+2026-04-03 19:44:43.203 +05:45 [INF] Now listening on: http://localhost:5089
+2026-04-03 19:44:43.206 +05:45 [INF] Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: payment_db, Schema: hangfire'
+2026-04-03 19:44:43.207 +05:45 [INF] Using the following options for PostgreSQL job storage:
+2026-04-03 19:44:43.208 +05:45 [INF]     Queue poll interval: 00:00:15.
+2026-04-03 19:44:43.208 +05:45 [INF]     Invisibility timeout: 00:30:00.
+2026-04-03 19:44:43.209 +05:45 [INF]     Use sliding invisibility timeout: False.
+2026-04-03 19:44:43.209 +05:45 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-03 19:44:43.216 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-03 19:44:43.217 +05:45 [INF] Hosting environment: Development
+2026-04-03 19:44:43.217 +05:45 [INF] Content root path: D:\Final_Projects\Transcational_api\TransactionalBusiness.Api
+2026-04-03 19:44:43.226 +05:45 [INF] Server msi:27960:6df6be38 successfully announced in 9.5725 ms
+2026-04-03 19:44:43.228 +05:45 [INF] Server msi:27960:6df6be38 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-03 19:44:43.233 +05:45 [INF] Server msi:27960:6df6be38 all the dispatchers started
+2026-04-03 19:44:43.879 +05:45 [INF] Executed DbCommand (6ms) [Parameters=[@__threshold_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @__threshold_0
+2026-04-03 19:44:43.889 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 19:44:52.045 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions
+ - application/json 128
+2026-04-03 19:44:52.050 +05:45 [WRN] Failed to determine the https port for redirect.
+2026-04-03 19:44:52.064 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions
+ - 404 0 null 19.3379ms
+2026-04-03 19:44:52.067 +05:45 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5089/api/transactions%0A, Response status code: 404
+2026-04-03 19:44:58.461 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@__threshold_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @__threshold_0
+2026-04-03 19:44:58.465 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 19:45:03.538 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions
+ - application/json 128
+2026-04-03 19:45:03.540 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions
+ - 404 0 null 2.1725ms
+2026-04-03 19:45:03.543 +05:45 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5089/api/transactions%0A, Response status code: 404
+2026-04-03 19:45:05.804 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/
+ - application/json 128
+2026-04-03 19:45:05.810 +05:45 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-04-03 19:45:05.811 +05:45 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-04-03 19:45:05.813 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/
+ - 405 0 null 8.1501ms
+2026-04-03 19:45:13.524 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@__threshold_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @__threshold_0
+2026-04-03 19:45:13.526 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 19:45:22.146 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 128
+2026-04-03 19:45:22.148 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-03 19:45:22.164 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-03 19:45:22.201 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@__idempotencyKey_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @__idempotencyKey_0
+LIMIT 1
+2026-04-03 19:45:22.244 +05:45 [INF] Duplicate request detected for IdempotencyKey: serilog-test-056
+2026-04-03 19:45:22.250 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-03 19:45:22.274 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 106.4569ms
+2026-04-03 19:45:22.275 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-03 19:45:22.276 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 129.7541ms
+2026-04-03 19:45:27.581 +05:45 [INF] Request starting HTTP/1.1 POST http://localhost:5089/api/transactions/ - application/json 127
+2026-04-03 19:45:27.582 +05:45 [INF] Executing endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-03 19:45:27.583 +05:45 [INF] Route matched with {action = "Create", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TransactionalBusiness.Api.Models.CreateTransactionRequest) on controller TransactionalBusiness.Api.Controllers.TransactionsController (TransactionalBusinessApi).
+2026-04-03 19:45:27.588 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@__idempotencyKey_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."IdempotencyKey" = @__idempotencyKey_0
+LIMIT 1
+2026-04-03 19:45:27.650 +05:45 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Transactions" ("Id", "Amount", "CreatedAt", "Currency", "Description", "FailureReason", "IdempotencyKey", "LastAttemptAt", "MaxRetries", "NextRetryAt", "RetryCount", "Status", "UpdatedAt", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-04-03 19:45:27.657 +05:45 [INF] Transaction "eeeab960-337c-4b27-9d2e-cda15c54ca5b" created for user "4be2d801-38b2-4a74-a4cf-8cfbb4eb769c"
+2026-04-03 19:45:27.658 +05:45 [INF] Executing CreatedAtActionResult, writing value of type 'TransactionalBusiness.Api.Models.TransactionResponse'.
+2026-04-03 19:45:27.659 +05:45 [INF] Executed action TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi) in 74.7729ms
+2026-04-03 19:45:27.660 +05:45 [INF] Executed endpoint 'TransactionalBusiness.Api.Controllers.TransactionsController.Create (TransactionalBusinessApi)'
+2026-04-03 19:45:27.661 +05:45 [INF] Request finished HTTP/1.1 POST http://localhost:5089/api/transactions/ - 201 null application/json; charset=utf-8 80.2055ms
+2026-04-03 19:45:28.501 +05:45 [INF] Executed DbCommand (2ms) [Parameters=[@__threshold_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Amount", t."CreatedAt", t."Currency", t."Description", t."FailureReason", t."IdempotencyKey", t."LastAttemptAt", t."MaxRetries", t."NextRetryAt", t."RetryCount", t."Status", t."UpdatedAt", t."UserId"
+FROM "Transactions" AS t
+WHERE t."Status" IN (5, 6) AND t."LastAttemptAt" < @__threshold_0
+2026-04-03 19:45:28.502 +05:45 [INF] Found 0 stuck transactions
+2026-04-03 19:45:30.713 +05:45 [INF] Server msi:27960:6df6be38 caught stopping signal...
+2026-04-03 19:45:30.715 +05:45 [INF] Application is shutting down...
+2026-04-03 19:45:30.716 +05:45 [INF] Server msi:27960:6df6be38 All dispatchers stopped
+2026-04-03 19:45:30.725 +05:45 [INF] Server msi:27960:6df6be38 successfully reported itself as stopped in 6.9252 ms
+2026-04-03 19:45:30.725 +05:45 [INF] Server msi:27960:6df6be38 has been stopped in total 10.1292 ms
