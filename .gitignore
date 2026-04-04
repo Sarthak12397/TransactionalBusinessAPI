@@ -6,5 +6,4 @@ obj/
 *.user
 .vs/
 logs/
-docker-compose.override.yml
 appsettings.json
