@@ -1,1 +1,6 @@
-logs/*.txt
+bin/
+obj/
+*.user
+.vs/
+logs/
+appsettings.Development.json
