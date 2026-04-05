@@ -7,8 +7,13 @@ using Hangfire.PostgreSql;
 using TransactionalBusiness.Api.Jobs;
 using Serilog;
 
+using CorrelationId;
+using CorrelationId.DependencyInjection;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDefaultCorrelationId();
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -46,6 +51,8 @@ builder.Services.AddScoped<StuckTransactionRecoveryJob>();
 
 
 var app = builder.Build();
+app.UseCorrelationId();
+
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<PaymentDbContext>();
