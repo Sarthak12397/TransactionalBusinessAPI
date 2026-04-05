@@ -88,7 +88,12 @@ public void RecordAttempt()
     UpdatedAt = DateTime.UtcNow;
 }
 
-
+public bool IsStuck(TimeSpan threshold)
+{
+    return Status == TransactionStatus.Processing
+        && LastAttemptAt.HasValue
+        && DateTime.UtcNow - LastAttemptAt.Value > threshold;
+}
 
 
 

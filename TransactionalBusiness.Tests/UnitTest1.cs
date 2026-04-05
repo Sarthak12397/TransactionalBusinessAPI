@@ -60,7 +60,17 @@ public class TransactionTests
 
         transaction.Status.Should().Be(TransactionStatus.Permanentfailure);
     }
+[Fact]
+public void Complete_Twice_ThrowsInvalidOperationException()
+{
+    var transaction = CreateTestTransaction();
+    transaction.Submit();
+    transaction.Process();
+    transaction.Complete();
 
+    Action act = () => transaction.Complete();
+    act.Should().Throw<InvalidOperationException>();
+}
     [Fact]
     public void Complete_FromProcessing_ChangesStatusToCompleted()
     {
@@ -113,6 +123,7 @@ public void ScheduleRetry_TransientFailure_SetsRetryScheduled()
     transaction.FailureReason.Should().Be("Network timeout");
 }
 
+
 [Fact]
 public void ScheduleRetry_ExponentialBackoff_IncreasesDelay()
 {
@@ -122,12 +133,25 @@ public void ScheduleRetry_ExponentialBackoff_IncreasesDelay()
     
     var firstRetry = DateTime.UtcNow.AddSeconds(30);
     transaction.ScheduleRetry("timeout", firstRetry);
-    transaction.Process();
+    var firstNextRetryAt = transaction.NextRetryAt;
     
+    transaction.Process();
     var secondRetry = DateTime.UtcNow.AddSeconds(60);
     transaction.ScheduleRetry("timeout", secondRetry);
     
-    transaction.NextRetryAt.Should().BeAfter(firstRetry);
+    transaction.NextRetryAt.Should().BeAfter(firstNextRetryAt!.Value);
+}
+
+[Fact]
+public void Processing_TooLong_ShouldBeDetectedAsStuck()
+{
+    var transaction = CreateTestTransaction();
+    transaction.Submit();
+    transaction.Process();
+
+    var isStuck = transaction.IsStuck(TimeSpan.FromSeconds(-1));
+
+    isStuck.Should().BeTrue();
 }
 [Fact]
 public void Process_WhenAlreadyProcessing_ThrowsInvalidOperationException()
