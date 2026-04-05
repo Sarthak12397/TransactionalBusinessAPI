@@ -95,4 +95,84 @@ public class TransactionTests
         act.Should().Throw<ArgumentException>()
            .WithMessage("*Amount*");
     }
+
+
+
+    [Fact]
+public void ScheduleRetry_TransientFailure_SetsRetryScheduled()
+{
+    var transaction = CreateTestTransaction();
+    transaction.Submit();
+    transaction.Process();
+    
+    var nextRetry = DateTime.UtcNow.AddSeconds(30);
+    transaction.ScheduleRetry("Network timeout", nextRetry);
+    
+    transaction.Status.Should().Be(TransactionStatus.RetryScheduled);
+    transaction.NextRetryAt.Should().NotBeNull();
+    transaction.FailureReason.Should().Be("Network timeout");
+}
+
+[Fact]
+public void ScheduleRetry_ExponentialBackoff_IncreasesDelay()
+{
+    var transaction = CreateTestTransaction();
+    transaction.Submit();
+    transaction.Process();
+    
+    var firstRetry = DateTime.UtcNow.AddSeconds(30);
+    transaction.ScheduleRetry("timeout", firstRetry);
+    transaction.Process();
+    
+    var secondRetry = DateTime.UtcNow.AddSeconds(60);
+    transaction.ScheduleRetry("timeout", secondRetry);
+    
+    transaction.NextRetryAt.Should().BeAfter(firstRetry);
+}
+[Fact]
+public void Process_WhenAlreadyProcessing_ThrowsInvalidOperationException()
+{
+    var transaction = CreateTestTransaction();
+    transaction.Submit();
+    transaction.Process();
+
+    // Second worker tries to process — should be rejected
+    Action act = () => transaction.Process();
+    act.Should().Throw<InvalidOperationException>()
+       .WithMessage("*Cannot Process*");
+}
+
+[Fact]
+public void RetryUntilSuccess_CompletesAfterTwoFailures()
+{
+    var transaction = CreateTestTransaction();
+    transaction.Submit();
+    
+    // Attempt 1 - fail
+    transaction.Process();
+    transaction.ScheduleRetry("timeout", DateTime.UtcNow.AddSeconds(30));
+    
+    // Attempt 2 - fail  
+    transaction.Process();
+    transaction.ScheduleRetry("timeout", DateTime.UtcNow.AddSeconds(60));
+    
+    // Attempt 3 - success
+    transaction.Process();
+    transaction.Complete();
+    
+    transaction.Status.Should().Be(TransactionStatus.Completed);
+    transaction.RetryCount.Should().Be(3);
+}
+
+[Fact]
+public void Reverse_FromCompleted_ChangesStatusToReversed()
+{
+    var transaction = CreateTestTransaction();
+    transaction.Submit();
+    transaction.Process();
+    transaction.Complete();
+    transaction.Reverse();
+    
+    transaction.Status.Should().Be(TransactionStatus.Reversed);
+}
 }

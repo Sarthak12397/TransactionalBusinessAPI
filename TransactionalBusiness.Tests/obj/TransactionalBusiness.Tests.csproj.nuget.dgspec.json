@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Transactionalbusiness.tests\\TransactionalBusiness.Tests.csproj": {}
+    "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\TransactionalBusiness.Tests\\TransactionalBusiness.Tests.csproj": {}
   },
   "projects": {
-    "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Transactionalbusiness.tests\\TransactionalBusiness.Tests.csproj": {
+    "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\TransactionalBusiness.Tests\\TransactionalBusiness.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Transactionalbusiness.tests\\TransactionalBusiness.Tests.csproj",
+        "projectUniqueName": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\TransactionalBusiness.Tests\\TransactionalBusiness.Tests.csproj",
         "projectName": "TransactionalBusiness.Tests",
-        "projectPath": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Transactionalbusiness.tests\\TransactionalBusiness.Tests.csproj",
+        "projectPath": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\TransactionalBusiness.Tests\\TransactionalBusiness.Tests.csproj",
         "packagesPath": "C:\\Users\\Sarthak Shrestha\\.nuget\\packages\\",
-        "outputPath": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\Transactionalbusiness.tests\\obj\\",
+        "outputPath": "D:\\Final_Projects\\Transcational_api\\TransactionalBusiness.Api\\TransactionalBusiness.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
