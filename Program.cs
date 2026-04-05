@@ -83,4 +83,3 @@ RecurringJob.AddOrUpdate<StuckTransactionRecoveryJob>(
 app.UseAuthorization();
 app.MapControllers();
 
-app.Run();
