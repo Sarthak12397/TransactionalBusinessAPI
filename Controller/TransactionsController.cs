@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using TransactionalBusiness.Api.Models;
 using TransactionalBusiness.Api.Domain;
 using TransactionalBusiness.Api.Services;
+using System.Globalization;
 namespace TransactionalBusiness.Api.Controllers;
 
 
@@ -76,9 +77,9 @@ public async Task<IActionResult> GetById(Guid id)
         return Ok(MapToResponse(transaction));
     }
     [HttpPost("{id}/fail")]
-    public async Task<IActionResult> Fail(Guid id)
+    public async Task<IActionResult> Fail(Guid id, [FromBody] FailTransactionRequest request)
     {
-        await _service.FailAsync(id);
+        await _service.FailAsync(id, request.Reason);
             var transaction = await _service.GetByIdAsync(id);
 return Ok(MapToResponse(transaction));
     }

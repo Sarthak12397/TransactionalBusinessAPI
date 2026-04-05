@@ -1,7 +1,10 @@
 
+using Hangfire;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using TransactionalBusiness.Api.Data;
 using TransactionalBusiness.Api.Domain;
+using TransactionalBusiness.Api.Jobs;
 using TransactionalBusiness.Api.Services;
 
 namespace TransactionalBusiness.Api.Services;
@@ -9,20 +12,25 @@ public class TransactionService : ITransactionService
 {
 
     private readonly PaymentDbContext _db;
+    private readonly ILogger<TransactionService> _logger;
 
 
-    public TransactionService(PaymentDbContext db)
+    public TransactionService(PaymentDbContext db,  ILogger<TransactionService> logger)
     {
         _db = db;
+        _logger = logger;
+
     }
     public async Task<Transaction> CreateAsync(Guid userId, decimal amount, string currency, string idempotencyKey, string description)
     {
 
         var existing = await _db.Transactions.FirstOrDefaultAsync(t => t.IdempotencyKey == idempotencyKey);
-        if(existing != null)
-        {
-            return existing;
-        }
+           
+    if (existing != null)
+    {
+        Log.Information("Duplicate request detected for IdempotencyKey: {Key}", idempotencyKey);
+        return existing;
+    }
 
         var transaction = new Transaction(  userId,
             amount,
@@ -33,25 +41,40 @@ public class TransactionService : ITransactionService
 
         _db.Transactions.Add(transaction);
         await _db.SaveChangesAsync();
+     _logger.LogInformation("Transaction {Id} created for user {UserId}", 
+    transaction.Id, transaction.UserId);
 
         return transaction;
     }
 
-    public async Task FailAsync(Guid id)
+    public async Task FailAsync(Guid id,string reason)
     {
 
-        var FailbyId = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
+        var failbyId = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
 
-        if(FailbyId == null)
-        {
-                        throw new KeyNotFoundException($"No {id} submitted");
+        if (failbyId == null)
+        
+            throw new KeyNotFoundException($"Transaction {id} not found");
+       if (FailureClassifier.IsPermanent(reason))
+{
+    failbyId.PermanentFail(reason);
+    await _db.SaveChangesAsync();
+_logger.LogWarning("Transaction {Id} failed with reason: {Reason}", 
+    id, reason);
+    return; // no retry!
+}
 
-        }
+// transient — schedule retry
+var nextRetry = DateTime.UtcNow.AddSeconds(30);
+failbyId.ScheduleRetry(reason, nextRetry);
+await _db.SaveChangesAsync();
 
-        FailbyId.Fail();
+BackgroundJob.Schedule<RetryTransactionJob>(
+    job => job.ExecuteAsync(id),
+    TimeSpan.FromSeconds(30)
+);
 
-
-        await  _db.SaveChangesAsync() ;                
+          
     }
 
     public async Task<Transaction> GetByIdAsync(Guid id)
@@ -89,6 +112,18 @@ public class TransactionService : ITransactionService
        public async Task ProcessAsync(Guid id)
             {
 
+    var updated = await _db.Transactions
+        .Where(t => t.Id == id 
+               && (t.Status == TransactionStatus.Submitted 
+               || t.Status == TransactionStatus.RetryScheduled))
+        .ExecuteUpdateAsync(s => s
+            .SetProperty(t => t.Status, TransactionStatus.Processing)
+            .SetProperty(t => t.LastAttemptAt, DateTime.UtcNow)
+            .SetProperty(t => t.NextRetryAt, (DateTime?)null)
+            .SetProperty(t => t.UpdatedAt, DateTime.UtcNow));
+
+    if (updated == 0) return;
+
            var processbyid = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
            if(processbyid == null)
         {
@@ -96,23 +131,23 @@ public class TransactionService : ITransactionService
 
         }
 
-             processbyid.Process();
+             processbyid.RecordAttempt();
             await _db.SaveChangesAsync();
         }
+        
+        
+        public async Task CompleteAsync(Guid id)
+{
+    var updated = await _db.Transactions
+        .Where(t => t.Id == id 
+               && t.Status == TransactionStatus.Processing)
+        .ExecuteUpdateAsync(s => s
+            .SetProperty(t => t.Status, TransactionStatus.Completed)
+            .SetProperty(t => t.FailureReason, (string?)null)
+            .SetProperty(t => t.UpdatedAt, DateTime.UtcNow));
 
-            public async Task CompleteAsync(Guid id)
-            {
-            var completebyid = await _db.Transactions.FirstOrDefaultAsync(t=> t.Id == id);
+    if (updated == 0)
+        throw new InvalidOperationException($"Cannot complete transaction {id}");
+}
 
-        if(completebyid == null)
-        {
-                        throw new KeyNotFoundException($"No {id} submitted");
-
-        }
-
-        completebyid.Complete();
-
-
-        await  _db.SaveChangesAsync() ;               
-            }
 }

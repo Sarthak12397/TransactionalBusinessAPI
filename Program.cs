@@ -2,8 +2,20 @@ using Microsoft.EntityFrameworkCore;
 using TransactionalBusiness.Api.Data;
 using TransactionalBusiness.Api.Services;
 using System.Text.Json.Serialization;
+using Hangfire;
+using Hangfire.PostgreSql;
+using TransactionalBusiness.Api.Jobs;
+using Serilog;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/payment-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Services.AddHangfireServer();
+builder.Host.UseSerilog();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options => {
@@ -18,9 +30,27 @@ builder.Services.AddDbContext<PaymentDbContext>(
 );
 
 builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddScoped<RetryTransactionJob>();
+
+
+builder.Services.AddHangfire(config =>
+
+          config.UsePostgreSqlStorage(
+            builder.Configuration.GetConnectionString("DefaultConnection")
+
+          )
+);
+
+
+builder.Services.AddScoped<StuckTransactionRecoveryJob>();
+
 
 var app = builder.Build();
-
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<PaymentDbContext>();
+    db.Database.Migrate();
+}
 app.UseHttpsRedirection();
 
 app.UseExceptionHandler(errorApp =>
@@ -44,6 +74,12 @@ app.UseExceptionHandler(errorApp =>
     });
 });
 app.UseRouting();
+app.UseHangfireDashboard("/hangfire");
+RecurringJob.AddOrUpdate<StuckTransactionRecoveryJob>(
+    "stuck-transaction-recovery",
+    job => job.ExecuteAsync(),
+    "*/15 * * * * * "
+);
 app.UseAuthorization();
 app.MapControllers();
 

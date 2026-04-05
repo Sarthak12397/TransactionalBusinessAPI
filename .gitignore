@@ -4,4 +4,8 @@ obj/
 .vs/
 logs/
 appsettings.Development.json
+<<<<<<< HEAD
 docker-compose.override.yml
+=======
+docker-compose.override.yml
+>>>>>>> feature/unit-tests

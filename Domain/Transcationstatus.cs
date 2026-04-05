@@ -7,7 +7,9 @@ namespace TransactionalBusiness.Api.Domain;
         Reversed,
         Submitted,
         Failed,
-        Processing
+        Processing,
+        RetryScheduled,
+        Permanentfailure
         
         
     }
