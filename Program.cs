@@ -58,13 +58,10 @@ builder.Services.AddHangfireServer();
 
 var app = builder.Build();
 
-// ✅ Apply correlation ID middleware FIRST
 app.UseCorrelationId();
 
-// ✅ Enable Serilog request logging (VERY IMPORTANT)
 app.UseSerilogRequestLogging();
 
-// ✅ Auto-migrate DB
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<PaymentDbContext>();
@@ -73,7 +70,6 @@ using (var scope = app.Services.CreateScope())
 
 app.UseHttpsRedirection();
 
-// ✅ Global exception handler
 app.UseExceptionHandler(errorApp =>
 {
     errorApp.Run(async context =>
