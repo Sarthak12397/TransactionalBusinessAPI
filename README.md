@@ -64,12 +64,12 @@ dotnet run
 
 
 ## API Endpoints
-POST   /api/transactions              → Create transaction
-GET    /api/transactions/{id}         → Get transaction status
-POST   /api/transactions/{id}/submit  → Submit for processing
-POST   /api/transactions/{id}/process → Process transaction
-POST   /api/transactions/{id}/complete → Complete transaction
-POST   /api/transactions/{id}/fail    → Fail with reason
+1) POST   /api/transactions              → Create transaction
+2) GET    /api/transactions/{id}         → Get transaction status
+3) POST   /api/transactions/{id}/submit  → Submit for processing
+4) POST   /api/transactions/{id}/process → Process transaction
+5) POST   /api/transactions/{id}/complete → Complete transaction
+6) POST   /api/transactions/{id}/fail    → Fail with reason
 
 
 ## Design Decisions
