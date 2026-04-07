@@ -20,7 +20,7 @@ To address this, the system manages every payment through a strict state machine
 ## Authorization
 This is the first decision point in the transaction lifecycle. It validates whether a transaction can proceed through checking conditions such as available balance and payment method validity. 
 
-##Clearing and Settlement
+## Clearing and Settlement
 It manages the movement of funds from customer’s account to merchant’s account. This ensures that once transaction is approved, it is finalized and reflected correctly in both systems.
 
 ## State Management
