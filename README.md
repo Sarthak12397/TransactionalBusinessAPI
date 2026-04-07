@@ -60,7 +60,7 @@ dotnet ef database update
 ```bash 
 dotnet run
 ```
-5) Hangfire dashboard is available at /hangfire for monitoring background jobs. 
+6) Hangfire dashboard is available at /hangfire for monitoring background jobs. 
 
 
 ## API Endpoints
