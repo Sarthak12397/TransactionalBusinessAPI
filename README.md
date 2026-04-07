@@ -42,13 +42,21 @@ It provides logging and monitors transaction flow, detect failures and diagnose 
 ```bash
  git clone https://github.com/Sarthak12397/TransactionalBusinessAPI.git
  ```
+
+2) With Docker (recommended):
+```bash 
+
+docker-compose up --build
+```
+### Without Docker:
+
 3) Configure the database connection in appsettings.json (PostgreSQL or SQL Server).
 4) Apply EF Core migrations:
 ```bash 
 dotnet ef database update
 ```
 
-4) Start the application:
+5) Start the application:
 ```bash 
 dotnet run
 ```
@@ -56,14 +64,23 @@ dotnet run
 
 
 ## API Endpoints
-
+POST   /api/transactions              → Create transaction
+GET    /api/transactions/{id}         → Get transaction status
+POST   /api/transactions/{id}/submit  → Submit for processing
+POST   /api/transactions/{id}/process → Process transaction
+POST   /api/transactions/{id}/complete → Complete transaction
+POST   /api/transactions/{id}/fail    → Fail with reason
 
 
 ## Design Decisions
 
 
 ## What I'd Improve
-
+- Add Kafka/RabbitMQ for distributed event handling
+- Add webhook support for real payment gateway integration
+- Add distributed tracing (OpenTelemetry)
+- Add rate limiting on API endpoints
+- Add JWT authentication
 
 
 
