@@ -38,14 +38,33 @@ It provides logging and monitors transaction flow, detect failures and diagnose 
 
 
 ## How to Run 
-Clone the repository:
-1) git clone https://github.com/Sarthak12397/TransactionalBusinessAPI.git
-2) Configure the database connection in appsettings.json (PostgreSQL or SQL Server).
-Apply EF Core migrations:
+1) Clone the repository:
+```bash
+ git clone https://github.com/Sarthak12397/TransactionalBusinessAPI.git
+ ```
+3) Configure the database connection in appsettings.json (PostgreSQL or SQL Server).
+4) Apply EF Core migrations:
+```bash 
 dotnet ef database update
-Start the application:
+```
+
+4) Start the application:
+```bash 
 dotnet run
-Hangfire dashboard is available at /hangfire for monitoring background jobs. 
+```
+5) Hangfire dashboard is available at /hangfire for monitoring background jobs. 
+
+
+## API Endpoints
+
+
+
+## Design Decisions
+
+
+## What I'd Improve
+
+
 
 
 
