@@ -9,6 +9,7 @@ The current problem in financial world is not having reliable and robust payment
 
 ## Proposed Solution
 Digital payments are widely used today, yet users still face issues such as being charged twice or not knowing whether a payment went through successfully, especially during network or bank failures. Businesses often struggle to determine why a payment failed or whether it should be retried, resulting in confusion and manual intervention.
+
 To address this, the system manages every payment through a strict state machine, ensuring each transaction moves through well-defined, controlled states and is never ambiguous or lost. Each transaction is assigned a correlation ID, enabling full traceability across services, logs, and retries, so every action can be tracked end-to-end. Failures are classified intelligently: transient issues are safely retried, while permanent failures are escalated with explicit reasons such as insufficient funds or external rejection. Combined with idempotency to prevent duplicate charges and observability for monitoring and diagnostics, this approach ensures transactions are processed in a deterministic, transparent, and fully recoverable manner.
 
 ## Architecture Diagram
