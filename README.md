@@ -32,10 +32,20 @@ It handles transient failures by retrying operations safely. It correctly identi
 ## Idempotency
 It ensures that repeated request does not result in duplicate transactions which is critical in financial systems.
 
-## observability
+## Observability
 It provides logging and monitors transaction flow, detect failures and diagnose issues in productions environments.
 
 
+
+## How to Run 
+Clone the repository:
+git clone https://github.com/Sarthak12397/TransactionalBusinessAPI.git
+Configure the database connection in appsettings.json (PostgreSQL or SQL Server).
+Apply EF Core migrations:
+dotnet ef database update
+Start the application:
+dotnet run
+Hangfire dashboard is available at /hangfire for monitoring background jobs. 
 
 
 
