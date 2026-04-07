@@ -12,7 +12,7 @@ Digital payments are widely used today, yet users still face issues such as bein
 To address this, the system manages every payment through a strict state machine, ensuring each transaction moves through well-defined, controlled states and is never ambiguous or lost. Each transaction is assigned a correlation ID, enabling full traceability across services, logs, and retries, so every action can be tracked end-to-end. Failures are classified intelligently: transient issues are safely retried, while permanent failures are escalated with explicit reasons such as insufficient funds or external rejection. Combined with idempotency to prevent duplicate charges and observability for monitoring and diagnostics, this approach ensures transactions are processed in a deterministic, transparent, and fully recoverable manner.
 
 ## Architecture Diagram
-<img width="2000" height="3050" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/18908fb0-3065-4df8-bd8d-04aa06caecf9" />
+<img width="1889" height="2838" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/1572c9ef-f274-4ebd-a0b1-87e8e0947ade" />
 
 
 
