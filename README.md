@@ -73,7 +73,11 @@ dotnet run
 
 
 ## Design Decisions
-
+- State Machine – Ensures deterministic transaction flow and avoids ambiguous states.
+- Correlation ID – Guarantees end-to-end traceability across services, retries, and logs.
+- Failure Classification & Retry Logic – Differentiates transient vs permanent failures, enabling safe retries and precise error handling.
+- Idempotency – Prevents duplicate charges from retries or repeated requests.
+- Observability – Integrated logging and monitoring (Serilog + Hangfire) to track and debug issues in real-time.
 
 ## What I'd Improve
 - Add Kafka/RabbitMQ for distributed event handling
