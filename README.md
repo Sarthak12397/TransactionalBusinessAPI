@@ -82,12 +82,11 @@ Hangfire dashboard: http://localhost:5089/hangfire
 - Observability – Integrated logging and monitoring (Serilog + Hangfire) to track and debug issues in real-time.
 
 ## What I'd Improve
-- Add Kafka/RabbitMQ for distributed event handling
-- Add webhook support for real payment gateway integration
-- Add distributed tracing (OpenTelemetry)
-- Add rate limiting on API endpoints
-- Add JWT authentication
-
+- **Kafka/RabbitMQ** → Replace Hangfire with event-driven messaging for distributed retry at scale
+- **Webhook support** → Real payment gateways push status updates via webhooks instead of polling
+- **OpenTelemetry** → Distributed tracing across services beyond single-service correlation IDs  
+- **Rate limiting** → Protect API from abuse and prevent resource exhaustion
+- **JWT Authentication** → Secure endpoints so only authenticated users can create transactions
 
 
 
