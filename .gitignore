@@ -4,4 +4,4 @@ obj/
 .vs/
 logs/
 appsettings.Development.json
-docker-compose.override.yml
+docker-compose.yml
