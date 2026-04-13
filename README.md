@@ -57,18 +57,24 @@ POST /api/transactions/{id}/submit
 
 Pending → Submitted → [Hangfire fires] → Processing → Completed
 
-###3. If a transient failure occurs:
+### 3. If a transient failure occurs:
 
 Processing 
+
 → RetryScheduled (retryCount: 1, nextRetry: +30s)
+
 → Processing 
+
 → RetryScheduled (retryCount: 2, nextRetry: +60s)
+
 → Completed
 
 ### 4. If a permanent failure occurs:
 
 Processing 
+
 → PermanentlyFailed (reason: "Insufficient funds")
+
 → No retry. Escalated.
 
 ---
