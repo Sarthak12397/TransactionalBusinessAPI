@@ -29,7 +29,7 @@ public class RetryTransactionJob
              Log.Information("Retrying transaction {Id}, attempt {Count}", 
     transactionId, transaction.RetryCount);
 
-         if(transaction.Status != TransactionStatus.RetryScheduled)
+         if(transaction.Status != TransactionStatus.RetryScheduled  && transaction.Status != TransactionStatus.Submitted)
          return;
         try
         {

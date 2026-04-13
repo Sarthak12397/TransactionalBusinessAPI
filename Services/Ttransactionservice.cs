@@ -104,7 +104,10 @@ BackgroundJob.Schedule<RetryTransactionJob>(
         submitbyId.Submit();
 
 
-        await  _db.SaveChangesAsync() ;                
+        await  _db.SaveChangesAsync() ;
+            BackgroundJob.Enqueue<RetryTransactionJob>(
+        job => job.ExecuteAsync(id)
+    );                
 
     }
 

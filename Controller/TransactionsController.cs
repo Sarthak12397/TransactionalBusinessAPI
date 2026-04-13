@@ -76,40 +76,42 @@ public async Task<IActionResult> GetById(Guid id)
             var transaction = await _service.GetByIdAsync(id);
         return Ok(MapToResponse(transaction));
     }
-    [HttpPost("{id}/fail")]
-    public async Task<IActionResult> Fail(Guid id, [FromBody] FailTransactionRequest request)
-    {
-        await _service.FailAsync(id, request.Reason);
-            var transaction = await _service.GetByIdAsync(id);
-return Ok(MapToResponse(transaction));
-    }
+
+
+//     [HttpPost("{id}/fail")]
+//     public async Task<IActionResult> Fail(Guid id, [FromBody] FailTransactionRequest request)
+//     {
+//         await _service.FailAsync(id, request.Reason);
+//             var transaction = await _service.GetByIdAsync(id);
+// return Ok(MapToResponse(transaction));
+//     }
     
-[HttpPost("{id}/process")]
-public async Task<IActionResult> Process(Guid id)
-{
-    await _service.ProcessAsync(id);
+// [HttpPost("{id}/process")]
+// public async Task<IActionResult> Process(Guid id)
+// {
+//     await _service.ProcessAsync(id);
 
-    var transaction = await _service.GetByIdAsync(id);
-return Ok(MapToResponse(transaction));
+//     var transaction = await _service.GetByIdAsync(id);
+// return Ok(MapToResponse(transaction));
+// }
+
+// [HttpPost("{id}/complete")]
+// public async Task<IActionResult> Complete(Guid id)
+// {
+//     await _service.CompleteAsync(id);
+//         var transaction = await _service.GetByIdAsync(id);
+// return Ok(MapToResponse(transaction));
+// }
+
+
+// }
+
+
+
+
+
+
+
+
+
 }
-
-[HttpPost("{id}/complete")]
-public async Task<IActionResult> Complete(Guid id)
-{
-    await _service.CompleteAsync(id);
-        var transaction = await _service.GetByIdAsync(id);
-return Ok(MapToResponse(transaction));
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-
