@@ -16,7 +16,15 @@ To address this, the system manages every payment through a strict state machine
 A transaction moves through defined states:
 <img width="994" height="998" alt="mermaid-diagram (2)" src="https://github.com/user-attachments/assets/136b7610-0191-4fc3-be9e-49b40cfa4808" />
 
+## Transaction Handling & System Behavior
 
+| Scenario              | System Behavior                     |
+|----------------------|------------------------------------|
+| Duplicate request     | Blocked via idempotency            |
+| Network timeout       | Retry triggered                    |
+| External service down | Retry with exponential backoff     |
+| Insufficient funds    | Marked as permanent failure        |
+| Stuck transaction     | Recovered via background job       |
 
 ## Architecture Diagram
 <img width="1889" height="2838" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/1572c9ef-f274-4ebd-a0b1-87e8e0947ade" />
