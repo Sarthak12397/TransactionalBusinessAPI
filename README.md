@@ -9,10 +9,10 @@ fault tolerance, and zero duplicate charges.
 ## Problem 
 Without a structured payment system, transactions become unreliable:
 
-- Customers get charged twice from duplicate requests
-- Network failures leave transactions in unknown states
-- No clear recovery path when payments get stuck mid-process
-- Businesses cannot determine if a failure should be retried or escalated
+- Customers get charged twice from duplicate requests  
+- Network failures leave transactions in unknown states  
+- No clear recovery path when payments get stuck mid-process  
+- Businesses cannot determine if a failure should be retried or escalated  
 
 ## Proposed Solution
 This system solves those problems through four guarantees:
