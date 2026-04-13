@@ -69,29 +69,6 @@ Processing → PermanentlyFailed (reason: "Insufficient funds")
 ## Architecture Diagram
 <img width="1889" height="2838" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/1572c9ef-f274-4ebd-a0b1-87e8e0947ade" />
 
-
-# Key Concepts
-
-### Authorization
-This is the first decision point in the transaction lifecycle. It validates whether a transaction can proceed through checking conditions such as available balance and payment method validity. 
-
-### Clearing and Settlement
-It manages the movement of funds from customer’s account to merchant’s account. This ensures that once transaction is approved, it is finalized and reflected correctly in both systems.
-
-### State Management
-It tracks the lifecycle of a transaction through clearly defined states for eg, Pending, Processing, Completed, Failed. It helps system to prevent ambiguity and ensures that every transaction is always known, recoverable state.
-
-### Failure handling and Retries
-It handles transient failures by retrying operations safely. It correctly identifies permanent failures to avoid unnecessary risks.
-
-### Idempotency
-It ensures that repeated request does not result in duplicate transactions which is critical in financial systems.
-
-### Observability
-It provides logging and monitors transaction flow, detect failures and diagnose issues in productions environments.
-
-
-
 ## How to Run 
 ### With Docker (recommended):
 ```bash
