@@ -16,7 +16,7 @@ To address this, the system manages every payment through a strict state machine
 A transaction moves through defined states:
 <img width="994" height="998" alt="mermaid-diagram (2)" src="https://github.com/user-attachments/assets/136b7610-0191-4fc3-be9e-49b40cfa4808" />
 
-## Transaction Handling & System Behavior
+## Failure Handling
 
 | Scenario              | System Behavior                     |
 |----------------------|------------------------------------|
