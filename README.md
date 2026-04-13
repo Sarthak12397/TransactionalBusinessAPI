@@ -34,7 +34,7 @@ A transaction moves through defined states:
 
 **Creating and processing a transaction:**
 
-**1. Create**
+### 1. Create
 ```json
 POST /api/transactions
 {
@@ -51,20 +51,24 @@ POST /api/transactions
   "retryCount": 0
 }
 ```
-**2. Submit → system takes over**
+### 2. Submit → system takes over
 
 POST /api/transactions/{id}/submit
+
 Pending → Submitted → [Hangfire fires] → Processing → Completed
 
-**3. If a transient failure occurs:**
+###3. If a transient failure occurs:
 
-Processing → RetryScheduled (retryCount: 1, nextRetry: +30s)
-→ Processing     (retryCount: 2, nextRetry: +60s)
+Processing 
+→ RetryScheduled (retryCount: 1, nextRetry: +30s)
+→ Processing 
+→ RetryScheduled (retryCount: 2, nextRetry: +60s)
 → Completed
 
-**4. If a permanent failure occurs:**
+### 4. If a permanent failure occurs:
 
-Processing → PermanentlyFailed (reason: "Insufficient funds")
+Processing 
+→ PermanentlyFailed (reason: "Insufficient funds")
 → No retry. Escalated.
 
 ---
