@@ -80,12 +80,18 @@ Hangfire dashboard: http://localhost:5089/hangfire
 
 
 ## API Endpoints
-1) POST   /api/transactions              → Create transaction
-2) GET    /api/transactions/{id}         → Get transaction status
-3) POST   /api/transactions/{id}/submit  → Submit for processing
-4) POST   /api/transactions/{id}/process → Process transaction
-5) POST   /api/transactions/{id}/complete → Complete transaction
-6) POST   /api/transactions/{id}/fail    → Fail with reason
+| Method | Route | Description |
+|--------|-------|-------------|
+| POST | `/api/transactions` | Create a transaction |
+| GET | `/api/transactions/{id}` | Get transaction status |
+| POST | `/api/transactions/{id}/submit` | Submit for processing |
+
+### Internal Operations *(system controlled — not exposed)*
+| Operation | Trigger |
+|-----------|---------|
+| `process` | Hangfire job after submit |
+| `complete` | Hangfire job on success |
+| `fail` | Hangfire job on failure classification |
 
 
 ## Design Decisions
