@@ -12,6 +12,20 @@ Digital payments are widely used today, yet users still face issues such as bein
 
 To address this, the system manages every payment through a strict state machine, ensuring each transaction moves through well-defined, controlled states and is never ambiguous or lost. Each transaction is assigned a correlation ID, enabling full traceability across services, logs, and retries, so every action can be tracked end-to-end. Failures are classified intelligently: transient issues are safely retried, while permanent failures are escalated with explicit reasons such as insufficient funds or external rejection. Combined with idempotency to prevent duplicate charges and observability for monitoring and diagnostics, this approach ensures transactions are processed in a deterministic, transparent, and fully recoverable manner.
 
+## Transaction Lifecycle
+A transaction moves through defined states:
+<img width="994" height="998" alt="mermaid-diagram (2)" src="https://github.com/user-attachments/assets/136b7610-0191-4fc3-be9e-49b40cfa4808" />
+
+## Failure Handling
+
+| Scenario              | System Behavior                     |
+|----------------------|------------------------------------|
+| Duplicate request     | Blocked via idempotency            |
+| Network timeout       | Retry triggered                    |
+| External service down | Retry with exponential backoff     |
+| Insufficient funds    | Marked as permanent failure        |
+| Stuck transaction     | Recovered via background job       |
+
 ## Architecture Diagram
 <img width="1889" height="2838" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/1572c9ef-f274-4ebd-a0b1-87e8e0947ade" />
 
@@ -39,29 +53,30 @@ It provides logging and monitors transaction flow, detect failures and diagnose 
 
 
 ## How to Run 
-1) Clone the repository:
+### With Docker (recommended):
 ```bash
- git clone https://github.com/Sarthak12397/TransactionalBusinessAPI.git
- ```
-
-2) With Docker (recommended):
-```bash 
-
+git clone https://github.com/Sarthak12397/TransactionalBusinessAPI.git
+cd TransactionalBusinessAPI
 docker-compose up --build
 ```
+API runs on http://localhost:8080
+
 ### Without Docker:
-
-3) Configure the database connection in appsettings.json (PostgreSQL or SQL Server).
-4) Apply EF Core migrations:
-```bash 
-dotnet ef database update
+```bash
+git clone https://github.com/Sarthak12397/TransactionalBusinessAPI.git
+cd TransactionalBusinessAPI
 ```
+Configure `appsettings.Development.json` with your PostgreSQL connection string.
 
-5) Start the application:
-```bash 
+```bash
+dotnet restore
+dotnet build
+dotnet ef database update
 dotnet run
 ```
-6) Hangfire dashboard is available at **/hangfire** for monitoring background jobs. 
+API runs on http://localhost:5089
+
+Hangfire dashboard: http://localhost:5089/hangfire
 
 
 ## API Endpoints
@@ -81,12 +96,11 @@ dotnet run
 - Observability – Integrated logging and monitoring (Serilog + Hangfire) to track and debug issues in real-time.
 
 ## What I'd Improve
-- Add Kafka/RabbitMQ for distributed event handling
-- Add webhook support for real payment gateway integration
-- Add distributed tracing (OpenTelemetry)
-- Add rate limiting on API endpoints
-- Add JWT authentication
-
+- **Kafka/RabbitMQ** → Replace Hangfire with event-driven messaging for distributed retry at scale
+- **Webhook support** → Real payment gateways push status updates via webhooks instead of polling
+- **OpenTelemetry** → Distributed tracing across services beyond single-service correlation IDs  
+- **Rate limiting** → Protect API from abuse and prevent resource exhaustion
+- **JWT Authentication** → Secure endpoints so only authenticated users can create transactions
 
 
 
