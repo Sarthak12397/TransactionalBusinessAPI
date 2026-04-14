@@ -147,11 +147,13 @@ Hangfire dashboard: http://localhost:5089/hangfire
 | Serilog | Structured logging — queryable, not just readable |
 
 ## What I'd Improve
-- **Kafka/RabbitMQ** → Replace Hangfire with event-driven messaging for distributed retry at scale
-- **Webhook support** → Real payment gateways push status updates via webhooks instead of polling
-- **OpenTelemetry** → Distributed tracing across services beyond single-service correlation IDs  
-- **Rate limiting** → Protect API from abuse and prevent resource exhaustion
-- **JWT Authentication** → Secure endpoints so only authenticated users can create transactions
+| Improvement          | Reason                                                                 | Impact | Priority |
+|---------------------|------------------------------------------------------------------------|--------|----------|
+| Kafka / RabbitMQ    | Replace Hangfire for distributed retry at scale                        | High   | High     |
+| Webhook support     | Real gateways push status updates — no polling needed                  | High   | High     |
+| OpenTelemetry       | Distributed tracing beyond single-service correlation IDs              | Medium | Medium   |
+| JWT Authentication  | Secure endpoints — only authenticated users create transactions        | High   | High     |
+| Rate limiting       | Prevent API abuse and resource exhaustion                              | High   | High     |
 
 
 
