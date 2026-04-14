@@ -14,7 +14,7 @@ Without a structured payment system, transactions become unreliable:
 - No clear recovery path when payments get stuck mid-process  
 - Businesses cannot determine if a failure should be retried or escalated  
 
-## Proposed Solution
+## Solution
 This system solves those problems through four guarantees:
 
 - **State machine** — every transaction moves through strict, controlled 
@@ -136,11 +136,15 @@ Hangfire dashboard: http://localhost:5089/hangfire
 
 
 ## Design Decisions
-- State Machine – Ensures deterministic transaction flow and avoids ambiguous states.
-- Correlation ID – Guarantees end-to-end traceability across services, retries, and logs.
-- Failure Classification & Retry Logic – Differentiates transient vs permanent failures, enabling safe retries and precise error handling.
-- Idempotency – Prevents duplicate charges from retries or repeated requests.
-- Observability – Integrated logging and monitoring (Serilog + Hangfire) to track and debug issues in real-time.
+
+| Decision | Why |
+|----------|-----|
+| State machine | Deterministic flow — no ambiguous states |
+| Idempotency keys | Same request, same result — no double charges |
+| Failure classification | Transient retried, permanent escalated |
+| Correlation IDs | Full traceability across retries and logs |
+| Hangfire | Persistent jobs — retries survive restarts |
+| Serilog | Structured logging — queryable, not just readable |
 
 ## What I'd Improve
 - **Kafka/RabbitMQ** → Replace Hangfire with event-driven messaging for distributed retry at scale
