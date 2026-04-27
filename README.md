@@ -5,6 +5,9 @@ from creation to final settlement — with guaranteed consistency,
 fault tolerance, and zero duplicate charges.
 > Built with .NET 10 · PostgreSQL · Hangfire · Docker · Serilog
 
+> See also: [Data Reconciliation Engine](https://github.com/Sarthak12397/Transaction-Reconciliation-Engine)
+> — the read-side that verifies the transactions this system processes.
+
 
 ## Problem 
 Without a structured payment system, transactions become unreliable:
