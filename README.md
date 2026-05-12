@@ -1,16 +1,30 @@
 # Payment Processing System
 
-A backend API that manages the full lifecycle of a financial transaction — 
-from creation to final settlement — with guaranteed consistency, 
-fault tolerance, and zero duplicate charges.
+A production-style payment processing system designed to prevent duplicate charges, recover safely from transient failures, and maintain transactional correctness under failure conditions.
 > Built with .NET 10 · PostgreSQL · Hangfire · Docker · Serilog
 
-> See also: [Data Reconciliation Engine](https://github.com/Sarthak12397/Transaction-Reconciliation-Engine)
-> — the read-side that verifies the transactions this system processes.
+## Financial Backend System Suite
 
+Part of a production-style fintech backend portfolio:
+
+- Payment Processing System — transaction execution & retry orchestration
+- Financial Ledger Engine — immutable double-entry source of truth
+- Reconciliation Engine — cross-system consistency verification
+
+
+> See also: [Data Reconciliation Engine](https://github.com/Sarthak12397/Transaction-Reconciliation-Engine)
+> — the audit-side system responsible for verifying cross-system transaction consistency.
+
+## Core Guarantees 
+| Guarantee | How |
+|-----------|-----| 
+| Exactly-once charge behavior | Idempotency keys enforced at DB constraint level |
+| No duplicate transactions under concurrent retries | Atomic ExecuteUpdateAsync — only one worker claims a transaction |
+| Safe recovery from partial failures | Stuck transaction recovery job detects and reschedules stalled payments |
+| No invalid transaction state under failure | State machine guards reject illegal or partial lifecycle transitions |
 
 ## Problem 
-Without a structured payment system, transactions become unreliable:
+Without deterministic payment processing, financial transactions become unreliable:
 
 - Customers get charged twice from duplicate requests  
 - Network failures leave transactions in unknown states  
@@ -30,7 +44,7 @@ This system solves those problems through four guarantees:
   for full end-to-end traceability.
 
 ## Transaction Lifecycle
-A transaction moves through defined states:
+A transaction moves through defined states. Every transition is explicitly guarded to prevent ambiguous or partially completed payment states.
 <img width="994" height="998" alt="mermaid-diagram (2)" src="https://github.com/user-attachments/assets/136b7610-0191-4fc3-be9e-49b40cfa4808" />
 
 ## Example Flow
@@ -149,15 +163,14 @@ Hangfire dashboard: http://localhost:5089/hangfire
 | Hangfire | Persistent jobs — retries survive restarts |
 | Serilog | Structured logging — queryable, not just readable |
 
-## What I'd Improve
+## Scaling & Future Hardening
 | Improvement          | Reason                                                                 | Impact | Priority |
 |---------------------|------------------------------------------------------------------------|--------|----------|
-| Kafka / RabbitMQ    | Replace Hangfire for distributed retry at scale                        | High   | High     |
+| Event-driven messaging (Kafka / RabbitMQ) | Distributed retry orchestration across multiple services | High   | High     |
 | Webhook support     | Real gateways push status updates — no polling needed                  | High   | High     |
 | OpenTelemetry       | Distributed tracing beyond single-service correlation IDs              | Medium | Medium   |
 | JWT Authentication  | Secure endpoints — only authenticated users create transactions        | High   | High     |
 | Rate limiting       | Prevent API abuse and resource exhaustion                              | High   | High     |
-
 
 
 
